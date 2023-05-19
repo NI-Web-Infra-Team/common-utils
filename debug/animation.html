@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>动画</title>
+  <script src="./../dist/index.js"></script>
+</head>
+
+<body>
+  <script>
+      var progress = 0;
+      function render() {
+          progress += 1; // 修改图像的位置
+          if (progress < 100) {  // 在动画没有结束前，递归渲染
+             cnUtils.requestAnimationFrame(render);
+            }
+          }
+      const handlerId = cnUtils.requestAnimationFrame(render);
+      console.log('动画id', handlerId);
+
+      cnUtils.cancelAnimationFrame(handlerId);
+  </script>
+</body>
+
+</html>

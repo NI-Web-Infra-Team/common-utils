@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cookie</title>
+  <script src="./../dist/index.js"></script>
+</head>
+
+<body>
+  <script>
+      const cookie = cnUtils.setCookie('userName', 'admin');
+      console.log('设置的cookie信息', cookie);
+
+      const user = cnUtils.getCookie('userName');
+      console.log('cookie信息-userName的值', user)
+
+      const allCookies = cnUtils.getAllCookies();
+      console.log('cookie所有信息', allCookies)
+
+      cnUtils.removeCookie('userName');
+      const newCookies = cnUtils.getAllCookies();
+      console.log('cookie所有信息', newCookies)
+  </script>
+</body>
+
+</html>

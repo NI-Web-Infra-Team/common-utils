@@ -1,0 +1,12 @@
+dist
+coverage
+node_modules
+dest
+types
+libs
+docs
+.husky
+
+comp-entry.ts
+config-entry.ts
+value-entry.ts
