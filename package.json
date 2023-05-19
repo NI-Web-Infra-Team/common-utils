@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.navinfo.com/CenNavi/cennavifrontend/common-util.git"
+    "url": "git@github.com:NI-Web-Infra-Team/common-util.git"
   },
   "files": [
     "dist",
