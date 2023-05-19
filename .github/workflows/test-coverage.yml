@@ -42,7 +42,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: pnpm i
 
       - uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
         with:
