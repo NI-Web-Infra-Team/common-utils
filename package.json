@@ -21,7 +21,8 @@
     "commit": "git-cz",
     "publishOnly": "npm run build && npm run all-log && npm run build:docs",
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "all-log": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "all-log": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -59,6 +60,10 @@
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-terser": "^0.4.0",
+    "@semantic-release/changelog": "~6.0.3",
+    "@semantic-release/exec": "~6.0.3",
+    "@semantic-release/git": "~10.0.1",
+    "@semantic-release/npm": "~10.0.3",
     "@types/js-cookie": "^3.0.1",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.16.13",
@@ -87,6 +92,7 @@
     "prettier": "^2.8.4",
     "rimraf": "^3.0.2",
     "rollup": "^3.20.2",
+    "semantic-release": "~21.0.2",
     "typescript": "^5.0.2",
     "vite": "^4.1.4",
     "vite-plugin-banner": "^0.7.0",
