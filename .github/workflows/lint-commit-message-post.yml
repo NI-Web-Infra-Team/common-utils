@@ -78,7 +78,7 @@ jobs:
           comment-body: |
             Hello, @${{ github.event.pull_request.user.login }}, seems like your commit message contains some issues.
 
-            你好，@${{ github.event.pull_request.user.login }}，你的提交消息不符合 Element Plus 的提交消息规范。
+            你好，@${{ github.event.pull_request.user.login }}，你的提交消息不符合 Issue 提交消息规范。
 
             ```
             ${{ steps.read.outputs.content }}

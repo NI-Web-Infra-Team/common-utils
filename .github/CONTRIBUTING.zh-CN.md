@@ -18,7 +18,7 @@ NI Web Infra Team 的成长离不开大家的支持，如果你愿意为 NI Web 
 
     1. type: 必须是 'build', 'chore', 'ci', 'conflict', 'delete', 'docs', 'downgrade', 'feat', 'fix', 'font', 'lint', 'perf', 'refactor', 'release', 'revert', 'stash', 'style', 'test', 'upgrade', 'wip' 其中的一个。
 
-    2. scope: 必须是 components, directives, element-plus, hooks, locale, test-utils, theme-chalk, tokens, utils, project, core, style, docs, ci, dev, build, deploy, other, typography, color, border, var 其中的一个。
+    2. scope: 必须是 components, directives, hooks, locale, test-utils, theme-chalk, tokens, utils, project, core, style, docs, ci, dev, build, deploy, other, typography, color, border, var 其中的一个。
 
     3. header: 描述信息不要超过 128 个字符并且不要少于 3 个字符。
 

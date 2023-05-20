@@ -41,9 +41,4 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Init Crowdin token
-        run: pnpm run build:docs
-        env:
-          CROWDIN_TOKEN: ${{secrets.CROWDIN_TOKEN}}
-
 

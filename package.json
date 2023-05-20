@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run banner && npm run build:type && npm run build:vite",
     "build:vite": "vite build",
-    "build:docs": "node jsdoc/clearDocs.js && npx jsdoc -c jsdoc/conf.json",
+    "docs:build": "node jsdoc/clearDocs.js && npx jsdoc -c jsdoc/conf.json",
     "build:type": "npm run clear:type && tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
     "banner": "node build/create-banner.js",
     "clear:type": "rimraf ./types",
@@ -20,7 +20,7 @@
     "lint": "eslint src --ext .js,.vue,.ts,.tsx",
     "lint-fix": "eslint src --fix --ext .vue,.js,.ts,.tsx",
     "cz": "git-cz",
-    "publishOnly": "npm run build && npm run build:docs",
+    "publishOnly": "npm run build && npm run docs:build",
     "semantic-release": "semantic-release"
   },
   "repository": {

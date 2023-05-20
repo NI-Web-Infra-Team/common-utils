@@ -62,7 +62,7 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=4096
 
       - name: Build website
-        run: pnpm build:docs
+        run: pnpm docs:build
         env:
           DOC_ENV: preview
           NODE_OPTIONS: --max-old-space-size=4096
@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: docs
-          path: docs/.vitepress/dist/
+          path: dist/docs/
           retention-days: 1
 
       # write pr.txt for share
