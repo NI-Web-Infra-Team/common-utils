@@ -41,8 +41,15 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
+      - name: Generate coverage report
+        run: yarn test:coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          skip-step: install
-          test-script: yarn run test:coverage
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./report.json # optional
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
