@@ -23,10 +23,7 @@
     "publishOnly": "npm run build && npm run docs:build",
     "semantic-release": "semantic-release"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:NI-Web-Infra-Team/common-util.git"
-  },
+  "repository": "git@github.com:NI-Web-Infra-Team/common-util.git",
   "files": [
     "dist",
     "types",
@@ -43,7 +40,7 @@
     "cennavi",
     "navinfo"
   ],
-  "author": "",
+  "author": "NI Web Infra Team",
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
       "eslint --fix",
@@ -96,9 +93,9 @@
     "vitest": "^0.31.1"
   },
   "peerDependencies": {
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "prop-types": "^15.8.1"
+    "react-dom": "^17.0.2"
   },
   "browserslist": [
     "last 1 version",
