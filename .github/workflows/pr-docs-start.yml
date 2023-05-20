@@ -13,6 +13,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            预览生成中...
+            <h2>预览生成中...</h2>
             <!-- NI_PREVIEW -->
           body-include: '<!-- NI_PREVIEW -->'
