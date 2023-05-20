@@ -15,7 +15,7 @@
     "banner": "node build/create-banner.js",
     "clear:type": "rimraf ./types",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage --reporter=json --outputFile=report.json",
+    "test:coverage": "npm run banner && vitest run --coverage --reporter=json --outputFile=report.json",
     "prepare": "husky install",
     "lint": "eslint src --ext .js,.vue,.ts,.tsx",
     "lint-fix": "eslint src --fix --ext .vue,.js,.ts,.tsx",
