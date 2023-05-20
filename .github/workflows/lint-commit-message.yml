@@ -16,33 +16,30 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
+      - name: Get yarn store directory
+        id: yarn-cache
         run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+          echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
-        name: Setup pnpm cache
+        name: Setup yarn cache
         with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.yarn-cache.outputs.yarn_cache_dir }}
+          key: ${{ runner.os }}-yarn-store-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-yarn-store-
 
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: yarn --frozen-lockfile
 
       - name: Lint commit
         id: lint
-        run: pnpm lint || echo "failed=true" >> $GITHUB_OUTPUT
+        run: yarn run lint || echo "failed=true" >> $GITHUB_OUTPUT
 
       - name: Set success result
         if: ${{ steps.lint.outputs.failed != 'true' }}

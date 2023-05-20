@@ -78,7 +78,7 @@ jobs:
           comment-body: |
             Hello, @${{ github.event.pull_request.user.login }}, seems like your commit message contains some issues.
 
-            你好，@${{ github.event.pull_request.user.login }}，你的提交消息不符合 Element Plus 的提交消息规范。
+            你好，@${{ github.event.pull_request.user.login }}，你的提交消息不符合 Issue 提交消息规范。
 
             ```
             ${{ steps.read.outputs.content }}
@@ -99,7 +99,7 @@ jobs:
             如果你觉得自己写这个提交消息很难，请使用下面的命令来启动一个交互式工具来帮助你生成消息。
 
             ```shell
-            pnpm cz
+            yarn cz
             ```
 
             Note that if you do not fix the commit message issue, your PR will be automatically closed within **3 days**.

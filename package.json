@@ -2,7 +2,7 @@
   "name": "@cennavi-fe/common-util",
   "version": "0.0.9",
   "description": "cennavi util function library",
-  "packageManager": "pnpm@7.3.0",
+  "packageManager": "yarn@1.22.19",
   "main": "dist/index.js",
   "type": "module",
   "module": "dist/index.es.js",
@@ -10,17 +10,17 @@
   "scripts": {
     "build": "npm run banner && npm run build:type && npm run build:vite",
     "build:vite": "vite build",
-    "build:docs": "node jsdoc/clearDocs.js && npx jsdoc -c jsdoc/conf.json",
+    "docs:build": "node jsdoc/clearDocs.js && npx jsdoc -c jsdoc/conf.json",
     "build:type": "npm run clear:type && tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
     "banner": "node build/create-banner.js",
     "clear:type": "rimraf ./types",
     "test": "vitest run",
-    "test:coverage": "vitest --coverage",
+    "test:coverage": "npm run banner && vitest run --reporter=junit --outputFile=coverage.xml",
     "prepare": "husky install",
     "lint": "eslint src --ext .js,.vue,.ts,.tsx",
     "lint-fix": "eslint src --fix --ext .vue,.js,.ts,.tsx",
     "cz": "git-cz",
-    "publishOnly": "npm run build && npm run build:docs",
+    "publishOnly": "npm run build && npm run docs:build",
     "semantic-release": "semantic-release"
   },
   "repository": {
@@ -52,6 +52,7 @@
     "*.scss": "prettier --write"
   },
   "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
@@ -73,7 +74,7 @@
     "c8": "^7.13.0",
     "commitizen": "^4.3.0",
     "dayjs": "^1.11.7",
-    "eslint": "^8.40.0",
+    "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",

@@ -5,7 +5,7 @@ name: 🧪 Test Coverage
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -20,32 +20,37 @@ jobs:
       - name: Add dev branch
         run: git branch dev origin/development
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
+      - name: Get yarn store directory
+        id: yarn-cache
         run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+          echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
-        name: Setup pnpm cache
+        name: Setup yarn cache
         with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.yarn-cache.outputs.yarn_cache_dir }}
+          key: ${{ runner.os }}-yarn-store-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-yarn-store-
 
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: yarn --frozen-lockfile
 
-      - uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
+      - name: Generate coverage report
+        run: yarn run test:coverage
+
+      - name: Upload coverage reports to Codecov
+        if: always()
+        uses: codecov/codecov-action@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          skip-step: install
-          test-script: pnpm run test:coverage
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml # optional
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)

@@ -13,10 +13,10 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16, 18]
+        node-version: [18]
         os: [ubuntu-latest, windows-latest]
         include:
-          - node-version: 16
+          - node-version: 18
             node-name: LTS
           - node-version: 18
             node-name: Current
@@ -30,39 +30,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
+      - name: Get yarn store directory
+        id: yarn-cache
         run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $env:GITHUB_OUTPUT
+          echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+          echo "yarn_cache_dir=$(yarn cache dir)" >> $env:GITHUB_OUTPUT
 
       - uses: actions/cache@v3
-        name: Setup pnpm cache
+        name: Setup yarn cache
         with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.yarn-cache.outputs.yarn_cache_dir }}
+          key: ${{ runner.os }}-yarn-store-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-yarn-store-
 
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: yarn --frozen-lockfile
 
       - name: Build common utils
-        run: pnpm build
+        run: yarn run build
         env:
           FORCE_COLOR: 2
           NODE_OPTIONS: --max-old-space-size=4096
 
       - name: Build website
-        run: pnpm build:docs
+        run: yarn run docs:build
         env:
           DOC_ENV: preview
           NODE_OPTIONS: --max-old-space-size=4096
@@ -73,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: docs
-          path: docs/.vitepress/dist/
+          path: dist/docs/
           retention-days: 1
 
       # write pr.txt for share
