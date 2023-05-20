@@ -45,12 +45,6 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: Read diff file
-        id: diff
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./tmp/diff.md
-
       - name: Set comment
         uses: actions-cool/maintain-one-comment@v3
         with:
