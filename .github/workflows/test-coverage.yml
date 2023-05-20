@@ -45,18 +45,11 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Generate coverage report
-        run: |
-            yarn run banner
-            npx vitest run --reporter=junit --outputFile=coverage.xml
+      - name: Generate banner
+        run: yarn run banner
 
-      - name: Upload coverage reports to Codecov
-        if: always()
-        uses: codecov/codecov-action@v3
+      - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml # optional
-          flags: unittests # optional
-          name: codecov-umbrella # optional
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          skip-step: install
+          test-script: yarn run test:coverage
