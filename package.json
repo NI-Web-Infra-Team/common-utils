@@ -2,7 +2,7 @@
   "name": "@cennavi-fe/common-util",
   "version": "0.0.9",
   "description": "cennavi util function library",
-  "packageManager": "pnpm@7.3.0",
+  "packageManager": "yarn@1.22.19",
   "main": "dist/index.js",
   "type": "module",
   "module": "dist/index.es.js",
