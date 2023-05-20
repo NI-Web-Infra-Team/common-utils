@@ -48,7 +48,7 @@ jobs:
       - name: Generate coverage report
         run: |
             yarn run banner
-            yarn run test:coverage
+            npx vitest run --reporter=junit --outputFile=coverage.xml
 
       - name: Upload coverage reports to Codecov
         if: always()
