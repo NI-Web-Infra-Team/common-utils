@@ -20,7 +20,7 @@
     "lint": "eslint src --ext .js,.vue,.ts,.tsx",
     "lint-fix": "eslint src --fix --ext .vue,.js,.ts,.tsx",
     "cz": "git-cz",
-    "publishOnly": "npm run build && npm run all-log && npm run build:docs",
+    "publishOnly": "npm run build && npm run build:docs",
     "semantic-release": "semantic-release"
   },
   "repository": {
