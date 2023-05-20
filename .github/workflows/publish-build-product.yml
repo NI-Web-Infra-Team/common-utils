@@ -44,10 +44,3 @@ jobs:
         run: yarn build
         env:
           NODE_OPTIONS: --max-old-space-size=4096
-
-      - name: Set comment
-        uses: actions-cool/maintain-one-comment@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: ${{ steps.diff.outputs.content }}
-          body-include: '<sub>Generated with'
