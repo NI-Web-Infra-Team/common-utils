@@ -46,7 +46,9 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Generate coverage report
-        run: yarn run test:coverage
+        run: |
+            yarn run banner
+            echo $(yarn run test:coverage) > coverage.xml
 
       - name: Upload coverage reports to Codecov
         if: always()
