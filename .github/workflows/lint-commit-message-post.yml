@@ -1,4 +1,4 @@
-name: 📮 Lint Commit Message Post
+name: Lint Commit Message Post
 
 on:
   workflow_run:

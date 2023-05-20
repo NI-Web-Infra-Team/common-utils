@@ -1,4 +1,4 @@
-name: 👮‍♂️ Build Product
+name: Build Product
 
 on:
   pull_request:

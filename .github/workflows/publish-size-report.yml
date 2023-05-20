@@ -1,4 +1,4 @@
-name: 📦 Package Size Report
+name: Package Size Report
 
 on:
   pull_request:
