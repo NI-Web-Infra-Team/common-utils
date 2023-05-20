@@ -4,7 +4,7 @@ function delDir(path) {
   let files = [];
   if (fs.existsSync(path)) {
     files = fs.readdirSync(path);
-    files.forEach((file, index) => {
+    files.forEach((file, ) => {
       let curPath = path + "/" + file;
       if (fs.statSync(curPath).isDirectory()) {
         delDir(curPath); //递归删除文件夹
@@ -16,4 +16,4 @@ function delDir(path) {
   }
 }
 
-delDir("dist/docs");
+delDir("docs");
