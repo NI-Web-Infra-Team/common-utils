@@ -1,8 +1,5 @@
 {
-  "branches": [
-    "main",
-    { "name": "development", "prerelease": true }
-  ],
+  "branches": ["main", { "name": "development", "prerelease": true }],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -29,7 +26,15 @@
       {
         "successCmd": "echo 'success'"
       }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          { "path": "CHANGELOG.md", "label": "Changelog" },
+          { "path": "dist/*", "label": "dist" }
+        ]
+      }
     ]
-  ],
-  "extends": "@semantic-release/gitlab-config"
+  ]
 }
