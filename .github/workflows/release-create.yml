@@ -1,25 +1,18 @@
 name: Release Create
 
 on:
-  push:
-    branches:
-      - main
-      - development
-    types: [created, edited]
-    paths:
-      - 'src/**/*'
-      - 'package.json'
-  release:
+  pull_request_target:
       branches:
         - main
         - development
-      types: [created, edited]
+      types: [closed]
       paths:
         - 'src/**/*'
         - 'package.json'
 jobs:
-  check:
+  release:
     name: Release Product
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
