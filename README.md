@@ -7,13 +7,13 @@
 ## 如何使用
 
 ```shell
-$ npm install -S @ni-web-infra/common-util
+$ yarn install @ni-web-infra/common-util
 ```
 
 ```js
 // 全量引入
-import cnUtils from "@ni-web-infra/common-util";
-cnUtils.getBrowserInfo();
+import commonUtils from "@ni-web-infra/common-util";
+commonUtils.getBrowserInfo();
 
 // 按需引入
 import { getBrowserInfo } from "@ni-web-infra/common-util";
@@ -29,13 +29,13 @@ getBrowserInfo();
 </script>
 
 <script>
-  cnUtils.getBrowserInfo();
+  commonUtils.getBrowserInfo();
 </script>
 ```
 
 ## API
 
-[API 文档](https://unpkg.com/@ni-web-infra/common-util/dist/docs/index.html)
+[API 文档](https://unpkg.com/@ni-web-infra/common-util/docs/index.html)
 
 ## 如何开发
 
