@@ -1,0 +1,57 @@
+# Unit Test Coverage Report
+
+name: Test Coverage
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Coverage
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions-cool/check-user-permission@v2
+        id: checkUser
+        with:
+          require: "write"
+
+      - name: Add dev branch
+        run: git branch dev origin/development
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Get yarn store directory
+        id: yarn-cache
+        run: |
+          echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup yarn cache
+        with:
+          path: ${{ steps.yarn-cache.outputs.yarn_cache_dir }}
+          key: ${{ runner.os }}-yarn-store-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-store-
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Generate coverage
+        run: yarn run test:coverage
+
+      - name: "Report Coverage"
+        if: always() # Also generate the report if tests are failing
+        uses: davelosert/vitest-coverage-report-action@v1

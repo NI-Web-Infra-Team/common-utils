@@ -1,0 +1,68 @@
+name: Lint Commit Message
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    outputs:
+      failed: ${{ steps.lint.outputs.failed == 'true' }}
+    env:
+      PULL_REQUEST_NUMBER: ${{ github.event.number }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Get yarn store directory
+        id: yarn-cache
+        run: |
+          echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup yarn cache
+        with:
+          path: ${{ steps.yarn-cache.outputs.yarn_cache_dir }}
+          key: ${{ runner.os }}-yarn-store-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-store-
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Lint commit
+        id: lint
+        run: yarn run lint || echo "failed=true" >> $GITHUB_OUTPUT
+
+      - name: Set success result
+        if: ${{ steps.lint.outputs.failed != 'true' }}
+        run: echo 'true' > ./lint-result.txt
+
+      - name: Set failed result
+        if: ${{ steps.lint.outputs.failed == 'true' }}
+        run: echo 'false' > ./lint-result.txt
+
+      - name: Set PR number
+        run: echo $PULL_REQUEST_NUMBER > pr.txt
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: commit-lint-report
+          path: ./commit-lint.txt
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: commit-lint-result
+          path: ./lint-result.txt
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pr-number
+          path: ./pr.txt

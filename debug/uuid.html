@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>获取uuid</title>
+  <script src="./../dist/index.js"></script>
+</head>
+
+<body>
+  <script>
+    const uuid8 = cnUtils.getUuid8();
+    console.log("8位随机id", uuid8);
+
+    const uuid16 = cnUtils.getUuid16();
+    console.log("16位随机id", uuid16);
+
+    const uuid = cnUtils.getUuid(32);
+    console.log("自定义位数的随机id", uuid);
+
+    const uuidDigit = cnUtils.getUuidDigit(8);
+    console.log("自定义位数的随机数字id", uuidDigit);
+  </script>
+</body>
+
+</html>

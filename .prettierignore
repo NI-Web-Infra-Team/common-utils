@@ -1,0 +1,12 @@
+dist
+coverage
+node_modules
+dest
+types
+libs
+docs
+.husky
+*.local
+*.log
+*.lock
+package-lock.json
