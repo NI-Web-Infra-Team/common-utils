@@ -1,4 +1,4 @@
-# @cennavi-fe/common-util
+# @ni-web-infra/common-util
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util?ref=badge_shield)
 
 
@@ -7,25 +7,25 @@
 ## 如何使用
 
 ```shell
-$ npm install -S @cennavi-fe/common-util
+$ npm install -S @ni-web-infra/common-util
 ```
 
 ```js
 // 全量引入
-import cnUtils from "@cennavi-fe/common-util";
+import cnUtils from "@ni-web-infra/common-util";
 cnUtils.getBrowserInfo();
 
 // 按需引入
-import { getBrowserInfo } from "@cennavi-fe/common-util";
+import { getBrowserInfo } from "@ni-web-infra/common-util";
 getBrowserInfo();
 
-import getBrowserInfo from "@cennavi-fe/common-util/dist/browser";
+import getBrowserInfo from "@ni-web-infra/common-util/dist/browser";
 getBrowserInfo();
 ```
 
 ```html
 <script>
-  src="https://unpkg.com/@cennavi-fe/common-util/dist/index.js">
+  src="https://unpkg.com/@ni-web-infra/common-util/dist/index.js">
 </script>
 
 <script>
@@ -35,7 +35,7 @@ getBrowserInfo();
 
 ## API
 
-[API 文档](https://unpkg.com/@cennavi-fe/common-util/dist/docs/index.html)
+[API 文档](https://unpkg.com/@ni-web-infra/common-util/dist/docs/index.html)
 
 ## 如何开发
 
@@ -70,7 +70,7 @@ $ npm publish
 // 在vue.config.js文件中 transpileDependencies 参数增加需要显示转换的模块名称
 
 // Babel 显式转译列表
-transpileDependencies: ['/@cennavi-fe/common-util/'],
+transpileDependencies: ['/@ni-web-infra/common-util/'],
 ```
 
 ## License
