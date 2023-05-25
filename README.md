@@ -39,6 +39,8 @@ getBrowserInfo();
 
 ## 如何开发
 
+请遵循[贡献指南](https://github.com/NI-Web-Infra-Team/common-util/blob/main/.github/CONTRIBUTING.zh-CN.md)
+
 ```shell
 # 安装依赖
 $ npm install
