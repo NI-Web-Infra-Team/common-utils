@@ -4,7 +4,7 @@ NI Web Infra Team 的成长离不开大家的支持，如果你愿意为 NI Web 
 
 ## Issue 规范
 
-- issue 仅用于提交 Bug 或 Feature 以及设计相关的内容，其它内容可能会被直接关闭。如果你在使用时产生了疑问，请到 [飞书技术支持群](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=287pd8a9-6a19-4b36-93c5-4b25b2d3860f) 里咨询。
+- issue 仅用于提交 Bug 或 Feature 以及设计相关的内容，其它内容可能会被直接关闭。如果你在使用时产生了疑问，请到 [飞书技术支持群](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=183k911b-f101-43dc-95bd-027d37ed1310) 里咨询。
 
 - 在提交 issue 之前，请搜索相关内容是否已被提出。
 
