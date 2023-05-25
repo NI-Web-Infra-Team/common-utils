@@ -13,3 +13,4 @@ export * from "./lib/CoordinateUtils";
 export * from "./lib/ajax";
 export * from "./lib/browser";
 export * from "./lib/getJson";
+export * from "./lib/computedTextWidth";
