@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run banner && npm run build:type && npm run build:vite",
     "build:vite": "vite build",
-    "docs:build": "rimraf ./docs && npx jsdoc -c jsdoc/conf.json",
+    "docs:build": "vitepress build docs",
     "build:type": "npm run clear:type && tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
     "banner": "node build/create-banner.js",
     "clear:type": "rimraf ./types",
@@ -21,7 +21,9 @@
     "lint-fix": "eslint src --fix --ext .vue,.js,.ts,.tsx",
     "cz": "git-cz",
     "publishOnly": "npm run build && npm run docs:build",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "docs:dev": "vitepress dev docs",
+    "docs:preview": "vitepress preview docs"
   },
   "repository": "git@github.com:NI-Web-Infra-Team/common-util.git",
   "files": [
@@ -91,6 +93,7 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.8",
     "vite-plugin-banner": "^0.7.0",
+    "vitepress": "^1.0.0-beta.1",
     "vitest": "^0.31.1"
   },
   "peerDependencies": {
