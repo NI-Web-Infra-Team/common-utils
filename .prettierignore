@@ -1,12 +1,35 @@
-dist
-coverage
+.DS_Store
 node_modules
-dest
+dist
+dist-ssr
 types
-libs
-docs
-.husky
+
+.temp
+.cache
+
+build/banner.ts
+
+# local env files
 *.local
-*.log
-*.lock
-package-lock.json
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+coverage.*
+
+auto-imports.d.ts
+components.d.ts
+
+**/.vitepress/dist
+**/.vitepress/cache
