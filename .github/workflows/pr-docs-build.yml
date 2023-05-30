@@ -1,6 +1,10 @@
 name: PR Docs Build
 
-on: pull_request
+on:
+  pull_request:
+    paths:
+        - "docs/**/*"
+        - "package.json"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
@@ -69,8 +73,8 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v3
         with:
-          name: docs
-          path: docs/
+          name: docs-dist
+          path: docs/.vitepress/dist/
           retention-days: 1
 
       # write pr.txt for share
