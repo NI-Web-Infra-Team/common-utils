@@ -10,7 +10,6 @@
   "scripts": {
     "build": "npm run banner && npm run build:type && npm run build:vite",
     "build:vite": "vite build",
-    "docs:build": "vitepress build docs",
     "build:type": "npm run clear:type && tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
     "banner": "node build/create-banner.js",
     "clear:type": "rimraf ./types",
@@ -23,6 +22,7 @@
     "publishOnly": "npm run build && npm run docs:build",
     "semantic-release": "semantic-release",
     "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "repository": "git@github.com:NI-Web-Infra-Team/common-util.git",
@@ -74,6 +74,7 @@
     "c8": "^7.14.0",
     "commitizen": "^4.3.0",
     "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
