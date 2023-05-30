@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - 'releases/**'
+      - beta
     paths:
       - "src/**/*"
       - "package.json"
