@@ -4,9 +4,6 @@ on:
   workflow_run:
     workflows: ["Publish to NPM registry"]
     types: [completed]
-    paths:
-        - "docs/**/*"
-        - "package.json"
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
@@ -20,4 +17,4 @@ jobs:
           persist-credentials: false
 
       - name: Start Netlify Build
-        run: curl -X POST -d '{}' $NETLIFY_BUILD_HOOKS
+        run: curl -X POST -d '{}' ${{ secrets.NETLIFY_BUILD_HOOKS }}
