@@ -4,6 +4,12 @@ on:
   workflow_run:
     workflows: ["Publish to NPM registry"]
     types: [completed]
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**/*"
+      - "package.json"
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
