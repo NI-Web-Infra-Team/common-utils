@@ -3,6 +3,9 @@ const { readFileSync, writeFileSync } = require("node:fs");
 const { Octokit } = require("octokit");
 const YAML = require("yaml");
 
+const dotenv = require("dotenv");
+dotenv.config({ path: join(process.cwd(), ".env.vault") });
+
 const ignoreList = ["ni-team-bot"];
 
 const templateFile = join(process.cwd(), "scripts/templates/auto_assign.yml");
@@ -11,9 +14,7 @@ const targetConfigFile = join(process.cwd(), ".github/auto_assign.yml");
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
-if (!process.env.GITHUB_TOKEN) {
-  throw Error("未找到环境变量 GITHUB_TOKEN");
-}
+
 /**
  * 从维护团队中获取所有的reviewer
  * */
