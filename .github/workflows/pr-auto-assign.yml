@@ -1,7 +1,7 @@
-name: "PR Auto Assign"
+name: "PR Auto Assign And Review"
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, edited, reopened, ready_for_review]
 
 jobs:
   add-reviews:
@@ -34,9 +34,10 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Generate config
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node ./scripts/generateAutoAssignConfig.cjs
+        run: |
+          touch .env.vault
+          echo GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} >> .env.vault
+          node ./scripts/generateAutoAssignConfig.cjs
 
       - uses: kentaro-m/auto-assign-action@v1.2.5
         with:

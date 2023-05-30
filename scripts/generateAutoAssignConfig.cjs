@@ -3,6 +3,9 @@ const { readFileSync, writeFileSync } = require("node:fs");
 const { Octokit } = require("octokit");
 const YAML = require("yaml");
 
+const dotenv = require("dotenv");
+dotenv.config({ path: join(process.cwd(), ".env.vault") });
+
 const ignoreList = ["ni-team-bot"];
 
 const templateFile = join(process.cwd(), "scripts/templates/auto_assign.yml");
