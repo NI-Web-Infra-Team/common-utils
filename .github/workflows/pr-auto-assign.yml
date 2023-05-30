@@ -35,7 +35,7 @@ jobs:
 
       - name: Generate config
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node ./scripts/generateAutoAssignConfig.cjs
 
       - uses: kentaro-m/auto-assign-action@v1.2.5

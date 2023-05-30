@@ -11,7 +11,9 @@ const targetConfigFile = join(process.cwd(), ".github/auto_assign.yml");
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
-
+if (!process.env.GITHUB_TOKEN) {
+  throw Error("未找到环境变量 GITHUB_TOKEN");
+}
 /**
  * 从维护团队中获取所有的reviewer
  * */
