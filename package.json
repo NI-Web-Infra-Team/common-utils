@@ -83,7 +83,6 @@
     "husky": "^8.0.3",
     "js-cookie": "^3.0.5",
     "jsdoc": "^4.0.2",
-    "jsdom": "^22.1.0",
     "lint-staged": "^13.2.2",
     "lodash-es": "^4.17.21",
     "minami": "^1.2.3",
