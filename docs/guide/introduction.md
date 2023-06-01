@@ -1,49 +1,30 @@
----
-outline: deep
----
+# 如何开发
 
-# Runtime API Examples
+请遵循[贡献指南](https://github.com/NI-Web-Infra-Team/common-util/blob/main/.github/CONTRIBUTING.zh-CN.md)
 
-This page demonstrates usage of some of the runtime APIs provided by VitePress.
+```shell
+# 安装依赖
+$ yarn
 
-The main `useData()` API can be used to access site, theme, and page data for the current page. It works in both `.md` and `.vue` files:
-
-```md
-<script setup>
-import { useData } from 'vitepress'
-
-const { theme, page, frontmatter } = useData()
-</script>
-
-## Results
-
-### Theme Data
-<pre>{{ theme }}</pre>
-
-### Page Data
-<pre>{{ page }}</pre>
-
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
+# 打包依赖
+$ yarn run build
 ```
 
-<script setup>
-import { useData } from 'vitepress'
+在 debug 文件夹下添加调试 html，引入 dist 目录下的 js 文件，即可调试
 
-const { site, theme, page, frontmatter } = useData()
-</script>
+# 注意
 
-## Results
+如果是 html 文件引用 `index.es.js` 文件或者通过 npm 的方式引用时，vue2.6 相关工程环境中，如果出现下面类似问题 `Module parse failed: Unexpected token` ，解决方式如下
 
-### Theme Data
-<pre>{{ theme }}</pre>
+```javascript
+// 在vue.config.js文件中 transpileDependencies 参数增加需要显示转换的模块名称
 
-### Page Data
-<pre>{{ page }}</pre>
+// Babel 显式转译列表
+{
+  //...
+	transpileDependencies: ['/@ni-web-infra/common-util/'],
+}
+```
 
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
-
-## More
-
-Check out the documentation for the [full list of runtime APIs](https://vitepress.dev/reference/runtime-api#usedata).
+# License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util?ref=badge_large)
