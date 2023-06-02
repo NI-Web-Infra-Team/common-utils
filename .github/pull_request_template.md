@@ -1,3 +1,3 @@
-- [ ] 确保您遵循贡献指南：([中文](https://github.com/NI-Web-Infra-Team/common-util/tree/main/.github/CONTRIBUTING.zh-CN.md)）。
+- [ ] 确保您遵循贡献指南：([中文](https://github.com/NI-Web-Infra-Team/common-utils/tree/main/.github/CONTRIBUTING.zh-CN.md)）。
 - [ ] 确保将提交合并到 `development` 分支。
 - [ ] 添加一些描述以及相关问题/需求/讨论链接。
