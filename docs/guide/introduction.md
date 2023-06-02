@@ -1,6 +1,6 @@
 # 如何开发
 
-请遵循[贡献指南](https://github.com/NI-Web-Infra-Team/common-util/blob/main/.github/CONTRIBUTING.zh-CN.md)
+请遵循[贡献指南](https://github.com/NI-Web-Infra-Team/common-utils/blob/main/.github/CONTRIBUTING.zh-CN.md)
 
 ```shell
 # 安装依赖
@@ -22,9 +22,9 @@ $ yarn run build
 // Babel 显式转译列表
 {
   //...
-	transpileDependencies: ['/@ni-web-infra/common-util/'],
+	transpileDependencies: ['/@ni-web-infra/common-utils/'],
 }
 ```
 
 # License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils?ref=badge_large)
