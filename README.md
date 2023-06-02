@@ -1,7 +1,5 @@
 # @ni-web-infra/common-utils
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils?ref=badge_shield)
-
-
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util?ref=badge_shield)
 公共工具类库
 
 ## 如何使用
@@ -10,7 +8,7 @@
 $ npm install -S @ni-web-infra/common-utils
 ```
 
-```js
+```javascript
 // 全量引入
 import cnUtils from "@ni-web-infra/common-utils";
 cnUtils.getBrowserInfo();
@@ -68,12 +66,15 @@ $ npm publish
 
 如果是 html 文件引用 `index.es.js` 文件或者通过 npm 的方式引用时，vue2.6 相关工程环境中，如果出现下面类似问题 `Module parse failed: Unexpected token` ，解决方式如下
 
-```js
+```javascript
 // 在vue.config.js文件中 transpileDependencies 参数增加需要显示转换的模块名称
 
 // Babel 显式转译列表
-transpileDependencies: ['/@ni-web-infra/common-utils/'],
+{
+  // ...
+    transpileDependencies: ['/@ni-web-infra/common-utils/']
+}
 ```
 
 ## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util?ref=badge_large)
