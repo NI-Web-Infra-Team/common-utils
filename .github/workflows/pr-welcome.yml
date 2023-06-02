@@ -25,4 +25,4 @@ jobs:
           token: ${{ github.token }}
           pr-number: ${{ github.event.pull_request.number }}
           greeting-message: "Hello %user%, thank you for contributing to %repo%, please see our [guideline](%guideline%) to see how to make contribution"
-          greeting-guideline-address: "https://github.com/NI-Web-Infra-Team/common-util/blob/main/CONTRIBUTING.zh-CN.md"
+          greeting-guideline-address: "https://github.com/NI-Web-Infra-Team/common-utils/blob/main/CONTRIBUTING.zh-CN.md"

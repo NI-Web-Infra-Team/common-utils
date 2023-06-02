@@ -1,5 +1,5 @@
 {
-  "name": "@ni-web-infra/common-util",
+  "name": "@ni-web-infra/common-utils",
   "version": "1.0.0",
   "description": "NI util function library",
   "packageManager": "yarn@1.22.19",
@@ -25,7 +25,7 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
-  "repository": "git@github.com:NI-Web-Infra-Team/common-util.git",
+  "repository": "git@github.com:NI-Web-Infra-Team/common-utils.git",
   "files": [
     "dist",
     "types",
