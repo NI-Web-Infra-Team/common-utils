@@ -6,19 +6,10 @@ on:
     types: [completed]
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: "Log level"
+      deployNotes:
+        description: "手动触发文档部署不会生成新的 release"
         required: true
-        default: "warning"
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-      environment:
-        description: "Environment to run tests against"
-        type: environment
-        required: true
+        type: boolean
 
 jobs:
   deploy-docs:
