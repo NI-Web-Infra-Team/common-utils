@@ -53,3 +53,18 @@ describe("getUuidDigit", () => {
     expect(reg.test(value)).toBe(true);
   });
 });
+
+describe("加入规则", () => {
+  const value = utils.getUuidDigit(4, {
+    num: 2,
+    letter: "12",
+  });
+  test("长度正常", () => {
+    expect(value.length).toBe(6);
+  });
+
+  test("值正常", () => {
+    const val = value.substring(2, 4);
+    expect(val).toBe("12");
+  });
+});

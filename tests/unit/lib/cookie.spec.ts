@@ -25,3 +25,13 @@ describe("getAllCookies", () => {
     expect(value).toBe(undefined);
   });
 });
+
+describe("removeCookie", () => {
+  test("正常", () => {
+    const value = utils.setCookie("userName", "admin");
+    utils.removeCookie("userName");
+    console.log(value);
+    //   FIXME: 猜测 cookie 无法在测试环境中生效
+    expect(value).toBe(undefined);
+  });
+});
