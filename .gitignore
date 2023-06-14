@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 dist
-docs
 dist-ssr
 types
 
@@ -31,3 +30,7 @@ coverage.*
 
 auto-imports.d.ts
 components.d.ts
+
+**/.vitepress/dist
+**/.vitepress/cache
+coverage

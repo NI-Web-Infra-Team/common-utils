@@ -1,18 +1,11 @@
-name: Release Create
-
+name: "PR Auto Assign And Review"
 on:
-  push:
-    branches:
-      - main
-      - beta
-    paths:
-      - "src/**/*"
-      - "package.json"
-jobs:
-  release:
-    name: Release Product
-    runs-on: ubuntu-latest
+  pull_request:
+    types: [opened, edited, reopened, ready_for_review]
 
+jobs:
+  add-reviews:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
@@ -40,7 +33,12 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Start release
-        env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-        run: yarn run semantic-release
+      - name: Generate config
+        run: |
+          touch .env.vault
+          echo GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} >> .env.vault
+          node ./scripts/generateAutoAssignConfig.cjs
+
+      - uses: kentaro-m/auto-assign-action@v1.2.5
+        with:
+          configuration-path: ".github/auto_assign.yml"
