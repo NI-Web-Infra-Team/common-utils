@@ -4,6 +4,21 @@ on:
   workflow_run:
     workflows: ["Publish to NPM registry"]
     types: [completed]
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      environment:
+        description: "Environment to run tests against"
+        type: environment
+        required: true
 
 jobs:
   deploy-docs:
