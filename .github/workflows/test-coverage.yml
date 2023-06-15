@@ -18,15 +18,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+
       - uses: actions-cool/check-user-permission@v2
         id: checkUser
         with:
           require: "write"
-
-      - name: Add dev branch
-        run: git branch dev origin/development
 
       - name: Setup node
         uses: actions/setup-node@v3
