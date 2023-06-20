@@ -5,12 +5,12 @@
 ## 如何使用
 
 ```shell
-$ yarn install @ni-web-infra/common-util
+$ yarn add @ni-web-infra/common-utils
 ```
 
 ```javascript
 // 全量引入
-import commonUtils from "@ni-web-infra/common-util";
+import commonUtils from "@ni-web-infra/common-utils";
 commonUtils.getBrowserInfo();
 
 // 按需引入
@@ -31,9 +31,9 @@ getBrowserInfo();
 </script>
 ```
 
-## API
+<!-- ## API
 
-[API 文档](https://unpkg.com/@ni-web-infra/common-util/docs/index.html)
+[API 文档](https://unpkg.com/@ni-web-infra/common-utils/docs/index.html) -->
 
 ## 如何开发
 
@@ -41,10 +41,10 @@ getBrowserInfo();
 
 ```shell
 # 安装依赖
-$ npm install
+$ yarn install
 
 # 打包依赖
-$ npm run build
+$ yarn build
 ```
 
 在 debug 文件夹下添加调试 html，引入 dist 目录下的 js 文件，即可调试。
