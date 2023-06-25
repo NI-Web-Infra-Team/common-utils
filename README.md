@@ -36,7 +36,7 @@ getBrowserInfo();
 </script>
 ```
 
-## API
+<!-- ## API
 
 [API 文档](https://unpkg.com/@ni-web-infra/common-utils/docs/index.html)
 
@@ -46,10 +46,10 @@ getBrowserInfo();
 
 ```shell
 # 安装依赖
-$ npm install
+$ yarn install
 
 # 打包依赖
-$ npm run build
+$ yarn build
 ```
 
 在 debug 文件夹下添加调试 html，引入 dist 目录下的 js 文件，即可调试。
