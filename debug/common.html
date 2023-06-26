@@ -12,14 +12,14 @@
 <body>
   <script>
       const str = '';
-      const isNull = cnUtils.isNotEmpty(str);
+      const isNull = niUtils.isNotEmpty(str);
       console.log('是否不为空', isNull);
 
       const world = 'helloWorld';
-      const newWorld = cnUtils.humpToLine(world);
+      const newWorld = niUtils.humpToLine(world);
       console.log('驼峰转横线', newWorld);
 
-      const nowWorld = cnUtils.lineToHump(newWorld);
+      const nowWorld = niUtils.lineToHump(newWorld);
       console.log('横线转驼峰', nowWorld);
   </script>
 </body>

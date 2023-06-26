@@ -15,13 +15,13 @@
       function render() {
           progress += 1; // 修改图像的位置
           if (progress < 100) {  // 在动画没有结束前，递归渲染
-             cnUtils.requestAnimationFrame(render);
+             niUtils.requestAnimationFrame(render);
             }
           }
-      const handlerId = cnUtils.requestAnimationFrame(render);
+      const handlerId = niUtils.requestAnimationFrame(render);
       console.log('动画id', handlerId);
 
-      cnUtils.cancelAnimationFrame(handlerId);
+      niUtils.cancelAnimationFrame(handlerId);
   </script>
 </body>
 

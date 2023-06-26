@@ -12,13 +12,13 @@
 <body>
   <script>
       const url = 'http://localhost:8080/getList?id=12';
-      const id = cnUtils.getUrlParam('id', url);
+      const id = niUtils.getUrlParam('id', url);
       console.log('参数值', id);
 
-      const host = cnUtils.getHost(url);
+      const host = niUtils.getHost(url);
       console.log('主机名', host);
 
-      const isSome = cnUtils.isSameDomain(url, globalThis.location.host);
+      const isSome = niUtils.isSameDomain(url, globalThis.location.host);
       console.log('域名', globalThis.location.host);
       console.log('域名是否相等', isSome);
   </script>

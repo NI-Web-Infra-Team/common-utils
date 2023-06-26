@@ -27,7 +27,7 @@ getBrowserInfo();
 </script>
 
 <script>
-  commonUtils.getBrowserInfo();
+  niUtils.getBrowserInfo();
 </script>
 ```
 
