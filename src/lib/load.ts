@@ -15,7 +15,7 @@ export const asyncLoadJs = (() => {
     // 正在加载或已经加载成功的，直接返回
     if (loaded.get(url)) return loaded.get(url);
 
-    const load = new Promise<void>((resolve, reject) => {
+    const load = new Promise((resolve, reject) => {
       const script = document.createElement("script");
       script.type = "text/javascript";
       if (crossOrigin) {
@@ -24,7 +24,7 @@ export const asyncLoadJs = (() => {
       script.src = url;
       document.body.appendChild(script);
       script.onload = () => {
-        resolve();
+        resolve({ msg: "加载成功", url });
       };
       script.onerror = () => {
         reject(new Error("加载失败"));
@@ -60,13 +60,13 @@ export const asyncLoadCss = (() => {
     // 正在加载或已经加载成功的，直接返回
     if (loaded.get(url)) return loaded.get(url);
 
-    const load = new Promise<void>((resolve, reject) => {
+    const load = new Promise((resolve, reject) => {
       const node = document.createElement("link");
       node.rel = "stylesheet";
       node.href = url;
       document.head.appendChild(node);
       node.onload = () => {
-        resolve();
+        resolve({ msg: "加载成功", url });
       };
       node.onerror = () => {
         reject(new Error("加载失败"));
