@@ -24,23 +24,27 @@ jobs:
         with:
           node-version: 18
 
-      - name: Get yarn store directory
-        id: yarn-cache
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
         run: |
-          echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $env:GITHUB_OUTPUT
 
       - uses: actions/cache@v3
-        name: Setup yarn cache
+        name: Setup pnpm cache
         with:
-          path: ${{ steps.yarn-cache.outputs.yarn_cache_dir }}
-          key: ${{ runner.os }}-yarn-store-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-store-
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm i --frozen-lockfile
 
       - name: Local build
-        run: yarn build
+        run: pnpm run build
         env:
           NODE_OPTIONS: --max-old-space-size=4096

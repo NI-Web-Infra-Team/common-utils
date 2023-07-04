@@ -1,11 +1,16 @@
 # @ni-web-infra/common-utils
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util?ref=badge_shield)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils?ref=badge_shield)
 公共工具类库
 
 ## 如何使用
 
 ```shell
+# 使用 npm
+$ npm add @ni-web-infra/common-utils
+# 使用 yarn
 $ yarn add @ni-web-infra/common-utils
+# 使用 pnpm
+$ pnpm add @ni-web-infra/common-utils
 ```
 
 ```javascript
@@ -33,7 +38,7 @@ getBrowserInfo();
 
 <!-- ## API
 
-[API 文档](https://unpkg.com/@ni-web-infra/common-utils/docs/index.html) -->
+[API 文档](https://unpkg.com/@ni-web-infra/common-utils/docs/index.html)
 
 ## 如何开发
 
@@ -77,4 +82,5 @@ $ npm publish
 ```
 
 ## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-util?ref=badge_large)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils?ref=badge_large)
