@@ -32,3 +32,6 @@ components.d.ts
 **/.vitepress/dist
 **/.vitepress/cache
 coverage
+*-coverage
+.nyc_output
+cypress

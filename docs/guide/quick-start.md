@@ -28,4 +28,3 @@ getBrowserInfo();
   cnUtils.getBrowserInfo();
 </script>
 ```
-

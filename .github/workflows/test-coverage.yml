@@ -55,6 +55,9 @@ jobs:
       - name: Generate coverage
         run: pnpm run test:coverage
 
+      - name: Merge unit and e2e coverage
+        run: node ./scripts/mergeCoverageReport.cjs
+
       - name: "Report Coverage"
         if: always() # Also generate the report if tests are failing
         uses: davelosert/vitest-coverage-report-action@v1
