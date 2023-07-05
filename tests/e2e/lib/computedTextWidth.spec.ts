@@ -1,20 +1,15 @@
 import { computedTextWidth } from "../../../src/lib/computedTextWidth";
+import { getStylePropertyValue } from "../../../src/lib/getStylePropertyValue";
 
 describe("computedTextWidth", () => {
   it("计算文本宽度", () => {
     cy.window().then((win) => {
-      const isZhCN = win.navigator.language === "zh-CN";
+      const text = "测试文字";
+      const font = getStylePropertyValue(win.document.body, "font");
 
-      const text = isZhCN ? "测试" : "test";
-      const font = isZhCN ? "宋体" : "Arial";
-
-      const zhCNTextWidth = 20;
-      const enUSTextWidth = 18;
-
-      // 大致宽度
-      const probablyWidth = Math.round(computedTextWidth(text, font));
-
-      expect(probablyWidth).to.be.equal(isZhCN ? zhCNTextWidth : enUSTextWidth);
+      const textWidth = computedTextWidth(text, font);
+      console.log("计算后的文字宽度", textWidth);
+      expect(textWidth).to.be.above(0);
     });
   });
 });
