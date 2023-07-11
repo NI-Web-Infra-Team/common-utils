@@ -24,6 +24,14 @@ jobs:
         with:
           require: "write"
 
+      - uses: actions/cache@v3
+        name: Setup cypress cache
+        with:
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress
+          restore-keys: |
+            ${{ runner.os }}-cypress
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
