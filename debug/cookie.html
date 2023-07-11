@@ -11,17 +11,17 @@
 
 <body>
   <script>
-      const cookie = cnUtils.setCookie('userName', 'admin');
+      const cookie = niUtils.setCookie('userName', 'admin');
       console.log('设置的cookie信息', cookie);
 
-      const user = cnUtils.getCookie('userName');
+      const user = niUtils.getCookie('userName');
       console.log('cookie信息-userName的值', user)
 
-      const allCookies = cnUtils.getAllCookies();
+      const allCookies = niUtils.getAllCookies();
       console.log('cookie所有信息', allCookies)
 
-      cnUtils.removeCookie('userName');
-      const newCookies = cnUtils.getAllCookies();
+      niUtils.removeCookie('userName');
+      const newCookies = niUtils.getAllCookies();
       console.log('cookie所有信息', newCookies)
   </script>
 </body>

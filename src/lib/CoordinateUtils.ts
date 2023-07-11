@@ -62,7 +62,7 @@ export class CoordinateUtils {
    * @returns {Coordinate} 坐标：[经度，纬度]
    *
    * @example
-   * cnUtils.CoordinateUtils.transformBD09ToGCJ02(coordinate);
+   * niUtils.CoordinateUtils.transformBD09ToGCJ02(coordinate);
    */
   static transformBD09ToGCJ02(coordinate: Coordinate) {
     const x = coordinate.lng - 0.0065;
@@ -82,7 +82,7 @@ export class CoordinateUtils {
    * @return {Coordinate} 百度坐标：[经度，纬度]
    *
    * @example
-   * cnUtils.CoordinateUtils.transformGCJ02ToBD09(coordinate);
+   * niUtils.CoordinateUtils.transformGCJ02ToBD09(coordinate);
    */
   static transformGCJ02ToBD09(coordinate: Coordinate) {
     const z =
@@ -102,7 +102,7 @@ export class CoordinateUtils {
    * @return {Coordinate} WGS84坐标：[经度，纬度]
    *
    * @example
-   * cnUtils.CoordinateUtils.simpleTransformGCJ02ToWGS84(coordinate);
+   * niUtils.CoordinateUtils.simpleTransformGCJ02ToWGS84(coordinate);
    */
   static simpleTransformGCJ02ToWGS84(coordinate: Coordinate) {
     if (outOfChina(coordinate)) {
@@ -129,7 +129,7 @@ export class CoordinateUtils {
    * @param {Coordinate} gcj GCJ02经纬度
    * @return {Coordinate} WGS84坐标：[经度，纬度]
    * @example
-   * cnUtils.CoordinateUtils.transformGCJ02ToWGS84(coordinate);
+   * niUtils.CoordinateUtils.transformGCJ02ToWGS84(coordinate);
    */
   static transformGCJ02ToWGS84(gcj: Coordinate) {
     // 计算输入 gcj 坐标与将其计算为84坐标的偏差
@@ -156,7 +156,7 @@ export class CoordinateUtils {
    * @return {Coordinate} GCJ02 坐标：[经度，纬度]
    *
    * @example
-   * cnUtils.CoordinateUtils.transformWGS84ToGCJ02(coordinate);
+   * niUtils.CoordinateUtils.transformWGS84ToGCJ02(coordinate);
    */
   static transformWGS84ToGCJ02(coordinate: Coordinate) {
     if (outOfChina(coordinate)) {
@@ -184,7 +184,7 @@ export class CoordinateUtils {
    * @return {Coordinate} WGS84 坐标：[经度，纬度]
    *
    * @example
-   * cnUtils.CoordinateUtils.transformBD09ToWGS84(coordinate);
+   * niUtils.CoordinateUtils.transformBD09ToWGS84(coordinate);
    */
   static transformBD09ToWGS84(coordinate: Coordinate) {
     const gcj02 = CoordinateUtils.transformBD09ToGCJ02(coordinate);
@@ -200,7 +200,7 @@ export class CoordinateUtils {
    * @return {Coordinate} BD09 坐标：[经度，纬度]
    *
    * @example
-   * cnUtils.CoordinateUtils.transformWGS84ToBD09(coordinate);
+   * niUtils.CoordinateUtils.transformWGS84ToBD09(coordinate);
    */
   static transformWGS84ToBD09(coordinate: Coordinate) {
     const gcj02 = CoordinateUtils.transformWGS84ToGCJ02(coordinate);

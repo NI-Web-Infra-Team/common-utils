@@ -12,28 +12,28 @@
 <body>
     <div class="content"></div>
   <script>
-      const dom = cnUtils.getDocument();
+      const dom = niUtils.getDocument();
       console.log('当前dom', dom);
 
-      const el = cnUtils.createDom('div', 'test', 'width:100px; height: 100px;')
+      const el = niUtils.createDom('div', 'test', 'width:100px; height: 100px;')
       console.log('dom元素', el);
 
-      cnUtils.removeDom(el);
+      niUtils.removeDom(el);
 
-      cnUtils.addClassName(el, 'add');
+      niUtils.addClassName(el, 'add');
       console.log('dom元素', el);
 
-      cnUtils.removeClassName(el, 'add');
+      niUtils.removeClassName(el, 'add');
       console.log('dom元素', el);
 
-      const newEl = cnUtils.removeClassNameByClassName('content');
+      const newEl = niUtils.removeClassNameByClassName('content');
       console.log('dom元素', newEl);
 
-      const styleEl = cnUtils.injectStyle('font-size: 14px');
+      const styleEl = niUtils.injectStyle('font-size: 14px');
       console.log('dom元素', styleEl);
 
       const str = '<div></div>';
-      const newStr = cnUtils.filterXSS(str);
+      const newStr = niUtils.filterXSS(str);
       console.log('转义后', str);
   </script>
 </body>

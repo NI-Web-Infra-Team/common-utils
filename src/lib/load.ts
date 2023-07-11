@@ -1,86 +1,83 @@
 /**
- * 异步加载js文件
+ * @description: 异步加载script
+ * @param {string} url 脚本地址
+ * @return {Promise}
  */
-export const asyncLoadJs = (() => {
-  // 正在加载或加载成功的存入此Map中
-  const documentMap = new Map();
+export function loadScript(url: string) {
+  return new Promise(function (resolve, reject) {
+    const script = document.createElement("script");
+    const headTag = document.getElementsByTagName("head")[0];
+    script.type = "text/javascript";
+    script.onload = function () {
+      resolve({
+        msg: "success",
+        url: url,
+      });
+    };
 
-  return (url: string, crossOrigin?: string, document = globalThis.document) => {
-    let loaded = documentMap.get(document);
-    if (!loaded) {
-      loaded = new Map();
-      documentMap.set(document, loaded);
-    }
+    script.onerror = function (error) {
+      reject({
+        error,
+        msg: "error",
+      });
+    };
 
-    // 正在加载或已经加载成功的，直接返回
-    if (loaded.get(url)) return loaded.get(url);
-
-    const load = new Promise((resolve, reject) => {
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      if (crossOrigin) {
-        script.crossOrigin = crossOrigin;
-      }
-      script.src = url;
-      document.body.appendChild(script);
-      script.onload = () => {
-        resolve({ msg: "加载成功", url });
-      };
-      script.onerror = () => {
-        reject(new Error("加载失败"));
-      };
-      setTimeout(() => {
-        reject(new Error("timeout"));
-      }, 60 * 1000);
-    }).catch((err) => {
-      // 加载失败的，从map中移除，第二次加载时，可以再次执行加载
-      loaded.delete(url);
-      throw err;
-    });
-
-    loaded.set(url, load);
-    return loaded.get(url);
-  };
-})();
+    script.src = url;
+    headTag.appendChild(script);
+  });
+}
 
 /**
- * 异步加载css文件
+ * @description: 异步加载script
+ * @param {Array<string>} urlArray 脚本地址数组
+ * @return {Promise}
  */
-export const asyncLoadCss = (() => {
-  // 正在加载或加载成功的存入此Map中
-  const documentMap = new Map();
+export function loadScripts(urlArray: Array<string>) {
+  const scriptArr = [];
+  for (let i = 0; i < urlArray.length; i++) {
+    scriptArr.push(loadScript(urlArray[i]));
+  }
+  return Promise.all(scriptArr);
+}
 
-  return (url: string, document = globalThis.document) => {
-    let loaded = documentMap.get(document);
-    if (!loaded) {
-      loaded = new Map();
-      documentMap.set(document, loaded);
-    }
+/**
+ * @description: 异步加载style
+ * @param {string} url 样式表地址
+ * @return {Promise}
+ */
+export function loadStyle(url: string) {
+  return new Promise(function (resolve, reject) {
+    const style = document.createElement("link");
+    const headTag = document.getElementsByTagName("head")[0];
+    style.rel = "stylesheet";
+    style.onload = function () {
+      resolve({
+        msg: "success",
+        url: url,
+      });
+    };
 
-    // 正在加载或已经加载成功的，直接返回
-    if (loaded.get(url)) return loaded.get(url);
+    style.onerror = function (error) {
+      reject({
+        error,
+        msg: "error",
+      });
+    };
 
-    const load = new Promise((resolve, reject) => {
-      const node = document.createElement("link");
-      node.rel = "stylesheet";
-      node.href = url;
-      document.head.appendChild(node);
-      node.onload = () => {
-        resolve({ msg: "加载成功", url });
-      };
-      node.onerror = () => {
-        reject(new Error("加载失败"));
-      };
-      setTimeout(() => {
-        reject(new Error("timeout"));
-      }, 60 * 1000);
-    }).catch((err) => {
-      // 加载失败的，从map中移除，第二次加载时，可以再次执行加载
-      loaded.delete(url);
-      throw err;
-    });
+    style.href = url;
+    headTag.appendChild(style);
+  });
+}
 
-    loaded.set(url, load);
-    return loaded.get(url);
-  };
-})();
+/**
+ * @description: 异步加载style
+ * @param {Array<string>} urlArray 样式表地址数组
+ * @return {Promise}
+ */
+export function loadStyles(urlArray: Array<string>) {
+  const styleArr = [];
+  for (let i = 0; i < urlArray.length; i++) {
+    styleArr.push(loadStyle(urlArray[i]));
+  }
+  return Promise.all(styleArr);
+}

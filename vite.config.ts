@@ -11,7 +11,7 @@ export default defineConfig({
 
     lib: {
       entry: "src/index.ts",
-      name: "cnUtils",
+      name: "niUtils",
       formats: ["es", "umd"],
       fileName: (format) => `index${format === "umd" ? "" : "." + format}.js`,
     },
