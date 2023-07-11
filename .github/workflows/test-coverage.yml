@@ -24,6 +24,14 @@ jobs:
         with:
           require: "write"
 
+      - uses: actions/cache@v3
+        name: Setup cypress cache
+        with:
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress
+          restore-keys: |
+            ${{ runner.os }}-cypress
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
@@ -54,6 +62,9 @@ jobs:
 
       - name: Generate coverage
         run: pnpm run test:coverage
+
+      - name: Merge unit and e2e coverage
+        run: node ./scripts/mergeCoverageReport.cjs
 
       - name: "Report Coverage"
         if: always() # Also generate the report if tests are failing

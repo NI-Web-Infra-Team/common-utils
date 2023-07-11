@@ -9,23 +9,20 @@
   </head>
   <body>
     <script>
-      const wgs84 = new niUtils.Coordinate(
-        110.7781634600000643,
-        22.966523235000077
-      );
+      const wgs84 = new cnUtils.Coordinate(110.7781634600000643, 22.966523235000077);
 
       console.log("wgs85", wgs84);
 
-      const gcj02 = niUtils.CoordinateUtils.transformWGS84ToGCJ02(wgs84);
+      const gcj02 = cnUtils.CoordinateUtils.transformWGS84ToGCJ02(wgs84);
       console.log("84转火星", gcj02);
 
-      const wgs84_02 = niUtils.CoordinateUtils.transformGCJ02ToWGS84(gcj02);
+      const wgs84_02 = cnUtils.CoordinateUtils.transformGCJ02ToWGS84(gcj02);
       console.log("火星转84", wgs84_02);
 
-      const bd09 = niUtils.CoordinateUtils.transformWGS84ToBD09(wgs84);
+      const bd09 = cnUtils.CoordinateUtils.transformWGS84ToBD09(wgs84);
       console.log("84转百度", bd09);
 
-      const wgs84_bd09 = niUtils.CoordinateUtils.transformBD09ToWGS84(bd09);
+      const wgs84_bd09 = cnUtils.CoordinateUtils.transformBD09ToWGS84(bd09);
       console.log("百度转84", wgs84_bd09);
     </script>
   </body>

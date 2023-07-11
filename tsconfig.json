@@ -13,5 +13,6 @@
     "types": ["node"],
     "baseUrl": "./"
   },
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
+  "include": ["src/**/*.ts", "./cypress.d.ts"]
 }

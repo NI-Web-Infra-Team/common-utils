@@ -3,6 +3,7 @@ module.exports = {
     node: true,
     browser: true,
     es2021: true,
+    "cypress/globals": true,
   },
   globals: {
     describe: true,
@@ -13,21 +14,21 @@ module.exports = {
   extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended", "prettier"],
   parserOptions: {
     ecmaVersion: 12,
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module',
-    project: ["tsconfig.json"]
+    parser: "@typescript-eslint/parser",
+    sourceType: "module",
+    project: ["tsconfig.json"],
   },
-  plugins: ["@typescript-eslint", "prettier"],
-  ignorePatterns: ['.eslintrc.cjs'],
+  plugins: ["@typescript-eslint", "prettier", "cypress"],
+  ignorePatterns: [".eslintrc.cjs"],
   rules: {
-    'no-param-reassign': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-require-imports': 'off',
+    "no-param-reassign": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-require-imports": "off",
     "@typescript-eslint/no-misused-promises": [
       "error",
       {
-        "checksVoidReturn": false
-      }
-    ]
+        checksVoidReturn: false,
+      },
+    ],
   },
 };

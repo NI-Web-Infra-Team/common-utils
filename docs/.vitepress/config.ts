@@ -25,7 +25,10 @@ export default defineConfig({
           { text: "animation", link: "/lib/animation" },
           { text: "browser", link: "/lib/browser" },
           { text: "common", link: "/lib/common" },
-          { text: "computedTextWidth", link: "/lib/computedTextWidth" },
+          {
+            text: "computedTextWidth",
+            link: "/lib/computedTextWidth",
+          },
           { text: "cookie", link: "/lib/cookie" },
           { text: "Coordinate", link: "/lib/Coordinate" },
           { text: "CoordinateUtils", link: "/lib/CoordinateUtils" },
@@ -40,7 +43,12 @@ export default defineConfig({
       },
     ],
 
-    socialLinks: [{ icon: "github", link: "https://github.com/NI-Web-Infra-Team/common-utils" }],
+    socialLinks: [
+      {
+        icon: "github",
+        link: "https://github.com/NI-Web-Infra-Team/common-utils",
+      },
+    ],
     search: {
       provider: "algolia",
       options: {
