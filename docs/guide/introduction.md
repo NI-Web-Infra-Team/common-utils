@@ -4,10 +4,10 @@
 
 ```shell
 # 安装依赖
-$ yarn
+$ pnpm i
 
 # 打包依赖
-$ yarn run build
+$ pnpm run build
 ```
 
 在 debug 文件夹下添加调试 html，引入 dist 目录下的 js 文件，即可调试

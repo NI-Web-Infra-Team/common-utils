@@ -19,30 +19,34 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.com/
 
-      - name: Get yarn store directory
-        id: yarn-cache
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
         run: |
-            echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $env:GITHUB_OUTPUT
 
       - uses: actions/cache@v3
-        name: Setup yarn cache
+        name: Setup pnpm cache
         with:
-            path: ${{ steps.yarn-cache.outputs.yarn_cache_dir }}
-            key: ${{ runner.os }}-yarn-store-${{ hashFiles('**/yarn.lock') }}
-            restore-keys: |
-                ${{ runner.os }}-yarn-store-
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm i --frozen-lockfile
 
       - name: Lint
-        run: yarn run lint
+        run: pnpm run lint
 
       - name: Build banner
-        run: yarn run banner
+        run: pnpm run banner
 
       - name: Test
-        run: yarn run test
+        run: pnpm run test
 
   publish:
     needs: test
@@ -54,6 +58,9 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.com/
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
 
       - name: Get version
         run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
