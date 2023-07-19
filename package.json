@@ -40,10 +40,11 @@
     "access": "public"
   },
   "keywords": [
-    "util",
+    "common-utils",
     "frontend",
     "cennavi",
-    "navinfo"
+    "navinfo",
+    "ni-web"
   ],
   "author": "NI Web Infra Team",
   "lint-staged": {
