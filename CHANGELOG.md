@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/NI-Web-Infra-Team/common-utils/compare/v1.1.0...v1.2.0) (2023-07-19)
+
+
+### Features
+
+* 异步加载文件成功提示信息 ([#32](https://github.com/NI-Web-Infra-Team/common-utils/issues/32)) ([aaac067](https://github.com/NI-Web-Infra-Team/common-utils/commit/aaac06725354659ee283ff2d16e79120ea9d18b8))
+* 补充单元测试并增加 e2e 相关测试 ([#34](https://github.com/NI-Web-Infra-Team/common-utils/issues/34)) ([0a1c5ed](https://github.com/NI-Web-Infra-Team/common-utils/commit/0a1c5edcd63b85d3d2b8fcb972e1fdbbebada94e))
+
 # [1.1.0](https://github.com/NI-Web-Infra-Team/common-utils/compare/v1.0.0...v1.1.0) (2023-07-19)
 
 
