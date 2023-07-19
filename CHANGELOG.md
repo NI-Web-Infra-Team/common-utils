@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/NI-Web-Infra-Team/common-utils/compare/v1.0.0...v1.1.0) (2023-07-19)
+
+
+### Features
+
+* 修改 keywords ([11c4e02](https://github.com/NI-Web-Infra-Team/common-utils/commit/11c4e025468636f1649788f4c4d1c4cc29823a59))
+* 添加文档搜索功能 ([#24](https://github.com/NI-Web-Infra-Team/common-utils/issues/24)) ([9248fb6](https://github.com/NI-Web-Infra-Team/common-utils/commit/9248fb662831c73ff6f5dc29bc633b3cfac84baf))
+
 # [1.1.0-beta.1](https://github.com/NI-Web-Infra-Team/common-utils/compare/v1.0.0...v1.1.0-beta.1) (2023-06-14)
 
 ### Features
