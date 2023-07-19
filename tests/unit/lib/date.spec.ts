@@ -21,6 +21,10 @@ describe("formatDatetime", () => {
   test("v是UTC字符串", () => {
     expect(utils.formatDatetime(date.toUTCString())).toMatch(dateValue);
   });
+
+  test("v是空对象", () => {
+    expect(utils.formatDatetime("")).toBe("");
+  });
 });
 
 describe("formatTimestamp", () => {

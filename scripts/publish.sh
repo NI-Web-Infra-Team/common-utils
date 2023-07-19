@@ -2,9 +2,9 @@
 
 set -e
 
-yarn --frozen-lockfile
+pnpm i --frozen-lockfile
 
-yarn build
+pnpm run build
 
 npm publish --registry=https://registry.npmjs.com/
 

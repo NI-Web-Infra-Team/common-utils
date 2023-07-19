@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./../dist/index.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <script src="./../dist/index.js"></script>
-</head>
-
-<body>
-  <script>
-    const result = cnUtils.getBrowserInfo(); //调用刚刚定义的函数
-    document.write("你使用的浏览器是:" + navigator.userAgent);
-    document.write("<br>");
-    document.write(
-      "你使用的浏览器是:" +
-      result.Actual_Name +
-      ",版本号:" +
-      result.Actual_Version
-    );
-  </script>
-  <!-- <script type="module">
+  <body>
+    <script>
+      const result = cnUtils.getBrowserInfo(); //调用刚刚定义的函数
+      document.write("你使用的浏览器是:" + navigator.userAgent);
+      document.write("<br>");
+      document.write("你使用的浏览器是:" + result.Actual_Name + ",版本号:" + result.Actual_Version);
+    </script>
+    <!-- <script type="module">
       import { getBrowserInfo } from "./../dist/browser.js";
       // import { getBrowserInfo } from "./../src/browser.js";
 
@@ -32,6 +26,5 @@
         navigator.Actual_Version
       );
     </script> -->
-</body>
-
+  </body>
 </html>

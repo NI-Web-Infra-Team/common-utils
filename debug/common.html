@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>common</title>
+    <script src="./../dist/index.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>common</title>
-  <script src="./../dist/index.js"></script>
-</head>
-
-<body>
-  <script>
-      const str = '';
+  <body>
+    <script>
+      const str = "";
       const isNull = cnUtils.isNotEmpty(str);
-      console.log('是否不为空', isNull);
+      console.log("是否不为空", isNull);
 
-      const world = 'helloWorld';
+      const world = "helloWorld";
       const newWorld = cnUtils.humpToLine(world);
-      console.log('驼峰转横线', newWorld);
+      console.log("驼峰转横线", newWorld);
 
       const nowWorld = cnUtils.lineToHump(newWorld);
-      console.log('横线转驼峰', nowWorld);
-  </script>
-</body>
-
+      console.log("横线转驼峰", nowWorld);
+    </script>
+  </body>
 </html>

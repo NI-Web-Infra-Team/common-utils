@@ -47,3 +47,20 @@ describe("filterXSS", () => {
     expect(value).toBe("&apos;div&apos;&quot;span&quot;");
   });
 });
+
+describe("isNotEmpty", () => {
+  test("null", () => {
+    const value = utils.isNotEmpty(null);
+    expect(value).toBe(false);
+  });
+
+  test("", () => {
+    const value = utils.isNotEmpty("");
+    expect(value).toBe(false);
+  });
+
+  test("有值", () => {
+    const value = utils.isNotEmpty("111");
+    expect(value).toBe(true);
+  });
+});

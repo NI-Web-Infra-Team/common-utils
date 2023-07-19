@@ -1,8 +1,27 @@
 import { defineConfig } from "vite";
+import IstanbulPlugin from "vite-plugin-istanbul";
 import banner from "vite-plugin-banner";
 import bannerContent from "./build/banner";
 
 import pkg from "./package.json";
+
+const plugins = [
+  banner({
+    content: bannerContent,
+  }),
+];
+if (process.env.CYPRESS === "true") {
+  plugins.push(
+    IstanbulPlugin({
+      include: "src/**/*",
+      exclude: ["dist", ".nyc_output", "node_modules", "coverage", "tests"],
+      requireEnv: false,
+      forceBuildInstrument: true,
+      cypress: true,
+      checkProd: true,
+    })
+  );
+}
 
 export default defineConfig({
   build: {
@@ -11,7 +30,7 @@ export default defineConfig({
 
     lib: {
       entry: "src/index.ts",
-      name: "cnUtils",
+      name: "niUtils",
       formats: ["es", "umd"],
       fileName: (format) => `index${format === "umd" ? "" : "." + format}.js`,
     },
@@ -19,7 +38,8 @@ export default defineConfig({
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
       external(id: string) {
-        return Object.keys(pkg.dependencies).some((k) => new RegExp(`^${k}`).test(id));
+        // @ts-ignore
+        return Object.keys(pkg.dependencies ?? {}).some((k) => new RegExp(`^${k}`).test(id));
       },
     },
   },
@@ -30,15 +50,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [
-    banner({
-      content: bannerContent,
-    }),
-  ],
-  test: {
-    coverage: {
-      // you can include other reporters, but 'json-summary' is required, json is recommended
-      reporter: ["text", "json-summary", "json"],
-    },
-  },
+  plugins,
 });

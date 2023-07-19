@@ -5,7 +5,7 @@ name: Test Coverage
 on:
   pull_request:
     branches:
-      - main
+      - development
 
 jobs:
   build:
@@ -18,39 +18,53 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+
       - uses: actions-cool/check-user-permission@v2
         id: checkUser
         with:
           require: "write"
 
-      - name: Add dev branch
-        run: git branch dev origin/development
+      - uses: actions/cache@v3
+        name: Setup cypress cache
+        with:
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress
+          restore-keys: |
+            ${{ runner.os }}-cypress
 
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Get yarn store directory
-        id: yarn-cache
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
         run: |
-          echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $env:GITHUB_OUTPUT
 
       - uses: actions/cache@v3
-        name: Setup yarn cache
+        name: Setup pnpm cache
         with:
-          path: ${{ steps.yarn-cache.outputs.yarn_cache_dir }}
-          key: ${{ runner.os }}-yarn-store-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-store-
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm i --frozen-lockfile
+
+      - name: Generate banner
+        run: pnpm run banner
 
       - name: Generate coverage
-        run: yarn run test:coverage
+        run: pnpm run test:coverage
+
+      - name: Merge unit and e2e coverage
+        run: node ./scripts/mergeCoverageReport.cjs
 
       - name: "Report Coverage"
         if: always() # Also generate the report if tests are failing

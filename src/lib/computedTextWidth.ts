@@ -8,8 +8,8 @@ let canvas: HTMLCanvasElement;
  */
 export function computedTextWidth(text: string, font: string) {
   canvas = canvas ?? document.createElement("canvas");
-  const context = canvas.getContext("2d");
-  context!.font = font;
-  const metrics = context!.measureText(text);
+  const context = canvas.getContext("2d") as CanvasRenderingContext2D;
+  context.font = font;
+  const metrics = context.measureText(text);
   return metrics.width;
 }
