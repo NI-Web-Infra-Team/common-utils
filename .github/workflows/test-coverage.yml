@@ -37,6 +37,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: Replace npmrc
+        run: cp -f .github.npmrc .npmrc
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
 
