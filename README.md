@@ -74,7 +74,7 @@ code ~/.npmrc
 
 > 参考 cnpm 配置 - [binary-mirror-config/package.json](https://github.com/cnpm/binary-mirror-config/blob/692b69014a900943166e0a039638729f6ff644d3/package.json#L47)
 
-```shell
+```env
 COREPACK_NPM_REGISTRY=https://registry.npmmirror.com,
 NODEJS_ORG_MIRROR=https://cdn.npmmirror.com/binaries/node,
 NVM_NODEJS_ORG_MIRROR=https://cdn.npmmirror.com/binaries/node,
