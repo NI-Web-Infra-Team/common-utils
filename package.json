@@ -10,24 +10,27 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
-    "build": "pnpm run banner && pnpm run build:type && pnpm run build:vite",
-    "build:vite": "vite build",
-    "build:type": "pnpm run clear:type && tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
+    "build": "run-s banner type-build build-vite",
+    "build-vite": "vite build",
+    "type-generate": "tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
+    "type-clear": "rimraf ./types",
+    "type-build": "run-s type-clear type-generate",
     "banner": "node build/create-banner.js",
-    "clear:type": "rimraf ./types",
-    "test:unit": "vitest run",
-    "test:e2e": "cypress run",
-    "test:all": "pnpm run test:unit && pnpm run test:e2e",
-    "test:coverage": "pnpm run test:e2e && vitest --coverage --watch false",
+    "test-unit": "vitest run",
+    "test-unit-coverage": "vitest --coverage --watch false",
+    "test-e2e": "cypress run",
+    "test-all": "npm-run-all banner --parallel test-unit test-e2e",
+    "test-coverage": "run-s test-e2e test-unit-coverage",
     "lint": "eslint src --ext .js,.vue,.ts,.tsx",
     "lint-fix": "eslint src --fix --ext .vue,.js,.ts,.tsx",
     "cz": "git-cz",
-    "publishOnly": "pnpm run build && pnpm run docs:build",
+    "publishOnly": "run-s build docs-build",
     "semantic-release": "semantic-release",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
-    "upgrade:dep": "taze -w -i"
+    "docs-dev": "vitepress dev docs",
+    "docs-build": "vitepress build docs",
+    "docs-preview": "vitepress preview docs",
+    "upgrade-dep": "taze -w -i",
+    "upgrade-all": "run-s upgrade-dep test-all"
   },
   "repository": "git@github.com:NI-Web-Infra-Team/common-utils.git",
   "files": [
@@ -95,6 +98,7 @@
     "lint-staged": "^13.2.3",
     "lodash-es": "^4.17.21",
     "minami": "^1.2.3",
+    "npm-run-all": "^4.1.5",
     "octokit": "^3.1.0",
     "prettier": "^3.0.0",
     "rimraf": "^5.0.1",
@@ -122,11 +126,6 @@
   "husky": {
     "hooks": {
       "commit-msg": "npx commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "git-cz"
     }
   },
   "nyc": {

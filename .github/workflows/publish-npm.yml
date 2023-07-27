@@ -46,7 +46,7 @@ jobs:
         run: pnpm run banner
 
       - name: Test
-        run: pnpm run test:all
+        run: pnpm run test-all
 
   publish:
     needs: test
