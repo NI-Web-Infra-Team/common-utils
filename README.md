@@ -1,6 +1,7 @@
 # @ni-web-infra/common-utils
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils?ref=badge_shield)
+![Publish Docs Deploy](https://github.com/NI-Web-Infra-Team/common-utils/actions/workflows/publish-docs-deploy.yml/badge.svg) ![Publish to NPM registry](https://github.com/NI-Web-Infra-Team/common-utils/actions/workflows/publish-npm.yml/badge.svg) ![Test Coverage](https://github.com/NI-Web-Infra-Team/common-utils/actions/workflows/test-coverage.yml/badge.svg) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNI-Web-Infra-Team%2Fcommon-utils?ref=badge_shield) 
+
 公共工具类库
 
 ## 如何使用
