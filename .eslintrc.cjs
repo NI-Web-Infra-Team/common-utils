@@ -19,7 +19,6 @@ module.exports = {
     project: ["tsconfig.json"],
   },
   plugins: ["@typescript-eslint", "prettier", "cypress"],
-  ignorePatterns: [".eslintrc.cjs"],
   rules: {
     "no-param-reassign": "off",
     "@typescript-eslint/no-explicit-any": "off",

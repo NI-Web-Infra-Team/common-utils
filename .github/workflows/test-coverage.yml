@@ -37,6 +37,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: Replace npmrc
+        run: cp -f .github.npmrc .npmrc
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
 
@@ -61,7 +64,7 @@ jobs:
         run: pnpm run banner
 
       - name: Generate coverage
-        run: pnpm run test:coverage
+        run: pnpm run test-coverage
 
       - name: Merge unit and e2e coverage
         run: node ./scripts/mergeCoverageReport.cjs
