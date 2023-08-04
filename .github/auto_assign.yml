@@ -1,9 +1,0 @@
-addReviewers: true
-addAssignees: author
-numberOfReviewers: 2
-skipKeywords:
-  - wip
-reviewers:
-  - liunnn1994
-  - alanwhy
-  - maguangweii
