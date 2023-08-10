@@ -35,3 +35,5 @@ coverage
 *-coverage
 .nyc_output
 cypress
+.github/auto_assign.yml
+.env.vault

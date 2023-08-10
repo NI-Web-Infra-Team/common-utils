@@ -15,14 +15,21 @@ jobs:
           require: "write"
           username: ${{ github.event.pull_request.user.login }}
 
-      - uses: actions-awesome/pr-helper@1.1.1
+      - uses: actions/github-script@v6
         if: steps.isTeamMember.outputs.require-result == 'false'
         with:
-          actions: "add-assignees, add-reviewers, greeting, add-labels"
-          assignees: "NI-Web-Infra-Team/backers"
-          reviewers: "NI-Web-Infra-Team/backers"
-          labels: "Contribution::Community"
-          token: ${{ github.token }}
-          pr-number: ${{ github.event.pull_request.number }}
-          greeting-message: "Hello %user%, thank you for contributing to %repo%, please see our [guideline](%guideline%) to see how to make contribution"
-          greeting-guideline-address: "https://github.com/NI-Web-Infra-Team/common-utils/blob/main/CONTRIBUTING.zh-CN.md"
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["Contribution::Community"]
+            })
+
+      - uses: peter-evans/create-or-update-comment@v3
+        if: steps.isTeamMember.outputs.require-result == 'false'
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            "Hello @${{ github.event.pull_request.user.login }}, thank you for contributing to us, please see our [guideline](https://github.com/NI-Web-Infra-Team/common-utils/blob/main/CONTRIBUTING.zh-CN.md) to see how to make contribution."
+            "您好 @${{ github.event.pull_request.user.login }}，感谢您为我们做出贡献，请参阅我们的[指南](https://github.com/NI-Web-Infra-Team/common-utils/blob/main/CONTRIBUTING.zh-CN.md)，了解如何进行贡献。"
