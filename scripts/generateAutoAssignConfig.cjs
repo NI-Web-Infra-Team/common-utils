@@ -12,7 +12,7 @@ const templateFile = join(process.cwd(), "scripts/templates/auto_assign.yml");
 const targetConfigFile = join(process.cwd(), ".github/auto_assign.yml");
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
+  auth: process.env.BOT_TOKEN,
 });
 
 /**
@@ -37,7 +37,6 @@ function generateConfigFile(reviewers) {
 async function main() {
   const reviewers = await getTeamReviewers();
   generateConfigFile(reviewers);
-  console.log();
 }
 
 main().catch(console.error);
