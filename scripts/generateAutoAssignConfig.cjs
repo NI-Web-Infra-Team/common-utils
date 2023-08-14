@@ -37,7 +37,6 @@ function generateConfigFile(reviewers) {
 async function main() {
   const reviewers = await getTeamReviewers();
   generateConfigFile(reviewers);
-  console.log();
 }
 
 main().catch(console.error);

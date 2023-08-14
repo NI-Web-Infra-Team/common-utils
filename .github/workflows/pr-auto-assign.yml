@@ -43,7 +43,7 @@ jobs:
       - name: Generate config
         run: |
           touch .env.vault
-          echo GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} >> .env.vault
+          echo BOT_TOKEN=${{ secrets.BOT_TOKEN }} >> .env.vault
           node ./scripts/generateAutoAssignConfig.cjs
 
       - uses: kentaro-m/auto-assign-action@v1.2.5
