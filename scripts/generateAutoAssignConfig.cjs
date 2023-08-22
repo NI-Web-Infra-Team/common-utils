@@ -6,6 +6,10 @@ const YAML = require("yaml");
 const dotenv = require("dotenv");
 dotenv.config({ path: join(process.cwd(), ".env.vault") });
 
+if (!process.env.BOT_TOKEN) {
+  throw new Error("BOT_TOKEN is required");
+}
+
 const ignoreList = ["ni-team-bot"];
 
 const templateFile = join(process.cwd(), "scripts/templates/auto_assign.yml");
