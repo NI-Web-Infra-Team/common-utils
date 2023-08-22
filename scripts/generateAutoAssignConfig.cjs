@@ -2,9 +2,15 @@ const { join } = require("node:path");
 const { readFileSync, writeFileSync } = require("node:fs");
 const { Octokit } = require("octokit");
 const YAML = require("yaml");
+const args = require("minimist")(process.argv.slice(2));
 
-const dotenv = require("dotenv");
-dotenv.config({ path: join(process.cwd(), ".env.vault") });
+const auth = args["bot-token"]?.trim();
+
+if (!auth) {
+  throw new Error("BOT_TOKEN is required");
+} else {
+  console.log(auth.slice(0, 5));
+}
 
 const ignoreList = ["ni-team-bot"];
 
@@ -12,7 +18,7 @@ const templateFile = join(process.cwd(), "scripts/templates/auto_assign.yml");
 const targetConfigFile = join(process.cwd(), ".github/auto_assign.yml");
 
 const octokit = new Octokit({
-  auth: process.env.BOT_TOKEN,
+  auth,
 });
 
 /**
