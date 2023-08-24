@@ -7,6 +7,9 @@ const auth = process.env.BOT_TOKEN?.trim();
 const owner = process.env.OWNER?.trim();
 const repo = process.env.REPO?.trim();
 const pull_number = process.env.PULL_NUMBER?.trim();
+const author = process.env.AUTHOR?.trim();
+
+console.log("author: ", author);
 
 const octokit = new Octokit({
   auth,
@@ -20,7 +23,7 @@ async function getTeamReviewers() {
     org: "NI-Web-Infra-Team",
     team_slug: "reviewers",
   });
-  return data.map((user) => user.login);
+  return data.filter((user) => user.login !== author).map((user) => user.login);
 }
 
 /**
