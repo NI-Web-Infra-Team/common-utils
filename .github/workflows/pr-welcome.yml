@@ -8,6 +8,7 @@ on:
 jobs:
   pr-open-greeting:
     runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.pull_request.user.login ,'[bot]') }}
     steps:
       - uses: actions-cool/check-user-permission@v2
         id: isTeamMember
