@@ -56,5 +56,6 @@ jobs:
           REPO: ${{ github.event.pull_request.head.repo.name }}
           PULL_NUMBER: ${{ github.event.pull_request.number }}
           AUTHOR: ${{ github.event.pull_request.user.login }}
+          COUNT: 2
         run: |
           node ./scripts/autoAssignAndReview.cjs

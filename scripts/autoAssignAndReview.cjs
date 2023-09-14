@@ -1,13 +1,11 @@
 const { Octokit } = require("octokit");
 
-//需要分配的人数
-const COUNT = 2;
-
 const auth = process.env.BOT_TOKEN?.trim();
 const owner = process.env.OWNER?.trim();
 const repo = process.env.REPO?.trim();
 const pull_number = process.env.PULL_NUMBER?.trim();
 const author = process.env.AUTHOR?.trim();
+let COUNT = process.env.COUNT;
 
 console.log("author: ", author);
 
@@ -73,7 +71,11 @@ function getRandomArrayElements(arr, count) {
 async function main() {
   const { teams, users } = await getRequestedReviewers();
   if (teams.length || users.length) return;
-  await setRequestedReviewers(getRandomArrayElements(await getTeamReviewers(), COUNT));
+  const reviewers = await getTeamReviewers();
+  if (COUNT > reviewers.length) {
+    COUNT = reviewers.length;
+  }
+  await setRequestedReviewers(getRandomArrayElements(reviewers, COUNT));
 }
 
 main().catch(console.error);
