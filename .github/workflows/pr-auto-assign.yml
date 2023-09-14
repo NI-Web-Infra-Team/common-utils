@@ -40,12 +40,21 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Generate config
-        run: |
-          touch .env.vault
-          echo GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} >> .env.vault
-          node ./scripts/generateAutoAssignConfig.cjs
-
-      - uses: kentaro-m/auto-assign-action@v1.2.5
+      - name: Add assigness
+        if: ${{ !contains(github.event.pull_request.user.login ,'[bot]') }}
+        uses: actions-cool/issues-helper@v3
         with:
-          configuration-path: ".github/auto_assign.yml"
+          actions: "add-assignees"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          assignees: ${{ github.event.pull_request.user.login }}
+
+      - name: Add reviewers
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          OWNER: ${{ github.event.pull_request.head.repo.owner.login }}
+          REPO: ${{ github.event.pull_request.head.repo.name }}
+          PULL_NUMBER: ${{ github.event.pull_request.number }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          node ./scripts/autoAssignAndReview.cjs
