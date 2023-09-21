@@ -58,7 +58,9 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: |
+          pnpm i --frozen-lockfile
+          pnpm cypress install
 
       - name: Generate banner
         run: pnpm run banner
