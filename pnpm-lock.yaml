@@ -156,7 +156,7 @@ devDependencies:
     version: 4.4.9(@types/node@20.4.9)
   vite-plugin-banner:
     specifier: ^0.7.0
-    version: 0.7.0
+    version: 0.7.1
   vite-plugin-istanbul:
     specifier: ^5.0.0
     version: 5.0.0(vite@4.4.9)
@@ -10411,8 +10411,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-banner@0.7.0:
-    resolution: {integrity: sha512-g0cm0wbrR6b6wR8FWtfD1RSDPacdumKEOAnneXv+NpJ9ez+j6rklRv6lMOO+aPf+Y6Zb8OzgIk0FXBZ6h+DeZQ==}
+  /vite-plugin-banner@0.7.1:
+    resolution: {integrity: sha512-Bww2Xd5tOGsZ1yZ9rQiGneryvsL1u86znPrqeQjCsXPsG72pnSdV5lcQA+cy8UNDguMqyTJiCevlNUbLnT85UA==}
     dev: true
 
   /vite-plugin-istanbul@5.0.0(vite@4.4.9):
