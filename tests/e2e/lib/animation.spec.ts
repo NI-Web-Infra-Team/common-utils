@@ -13,7 +13,7 @@ describe("animation", () => {
   console.log("handlerId", handlerId);
   it("执行动画", () => {
     console.log("执行动画", handlerId);
-    expect(handlerId).to.be.equal(1);
+    expect(handlerId).to.equal(1);
   });
 
   it("休眠", async () => {
@@ -26,6 +26,6 @@ describe("animation", () => {
 
   it("取消动画", () => {
     cancelAnimationFrame(handlerId);
-    expect(handlerId).to.be.equal(1);
+    expect(handlerId).to.equal(1);
   });
 });
