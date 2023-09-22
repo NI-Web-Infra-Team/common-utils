@@ -7,7 +7,7 @@ describe("getStylePropertyValue", () => {
       .invoke("css", "font-size", targetSize)
       .then((el) => {
         const body = el[0] as unknown as HTMLBodyElement;
-        expect(body.style.fontSize).to.be.equal(getStylePropertyValue(body, "font-size"));
+        expect(body.style.fontSize).to.equal(getStylePropertyValue(body, "font-size"));
       });
   });
 });

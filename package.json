@@ -1,140 +1,140 @@
 {
-  "name": "@ni-web-infra/common-utils",
-  "version": "1.2.0",
-  "description": "NI util function library",
-  "packageManager": "pnpm@8.6.12",
-  "main": "dist/index.js",
-  "type": "module",
-  "module": "dist/index.es.js",
-  "types": "types/index.d.ts",
-  "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "prepare": "husky install",
-    "build": "run-s banner type-build build-vite",
-    "build-vite": "vite build",
-    "type-generate": "tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
-    "type-clear": "rimraf ./types",
-    "type-build": "run-s type-clear type-generate",
-    "banner": "node build/create-banner.js",
-    "test-unit": "vitest run",
-    "test-unit-coverage": "vitest --coverage --watch false",
-    "test-e2e": "cypress run",
-    "test-all": "npm-run-all banner --parallel test-unit test-e2e",
-    "test-coverage": "run-s test-e2e test-unit-coverage",
-    "lint": "eslint src --ext .js,.vue,.ts,.tsx",
-    "lint-fix": "eslint src --fix --ext .vue,.js,.ts,.tsx",
-    "cz": "git-cz",
-    "publishOnly": "run-s build docs-build",
-    "semantic-release": "semantic-release",
-    "docs-dev": "vitepress dev docs",
-    "docs-build": "vitepress build docs",
-    "docs-preview": "vitepress preview docs",
-    "upgrade-dep": "taze -w -i",
-    "upgrade-all": "run-s upgrade-dep test-all"
-  },
-  "repository": "git@github.com:NI-Web-Infra-Team/common-utils.git",
-  "files": [
-    "dist",
-    "types",
-    "package.json",
-    "README.md",
-    "CHANGELOG.md"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "common-utils",
-    "frontend",
-    "cennavi",
-    "navinfo",
-    "ni-web"
-  ],
-  "author": "NI Web Infra Team",
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+    "name": "@ni-web-infra/common-utils",
+    "version": "1.2.0",
+    "description": "NI util function library",
+    "packageManager": "pnpm@8.6.12",
+    "main": "dist/index.js",
+    "type": "module",
+    "module": "dist/index.es.js",
+    "types": "types/index.d.ts",
+    "scripts": {
+        "preinstall": "npx only-allow pnpm",
+        "prepare": "husky install",
+        "build": "run-s banner type-build build-vite",
+        "build-vite": "vite build",
+        "type-generate": "tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
+        "type-clear": "rimraf ./types",
+        "type-build": "run-s type-clear type-generate",
+        "banner": "node build/create-banner.js",
+        "test-unit": "vitest run",
+        "test-unit-coverage": "vitest --coverage --watch false",
+        "test-e2e": "cypress run --browser chrome",
+        "test-all": "npm-run-all banner --parallel test-unit test-e2e",
+        "test-coverage": "run-s test-e2e test-unit-coverage",
+        "lint": "eslint src --ext .js,.vue,.ts,.tsx",
+        "lint-fix": "eslint src --fix --ext .vue,.js,.ts,.tsx",
+        "cz": "git-cz",
+        "publishOnly": "run-s build docs-build",
+        "semantic-release": "semantic-release",
+        "docs-dev": "vitepress dev docs",
+        "docs-build": "vitepress build docs",
+        "docs-preview": "vitepress preview docs",
+        "upgrade-dep": "taze -w -i",
+        "upgrade-all": "run-s upgrade-dep test-all"
+    },
+    "repository": "git@github.com:NI-Web-Infra-Team/common-utils.git",
+    "files": [
+        "dist",
+        "types",
+        "package.json",
+        "README.md",
+        "CHANGELOG.md"
     ],
-    "*.scss": "prettier --write"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@commitlint/cli": "^17.7.0",
-    "@commitlint/config-conventional": "^17.7.0",
-    "@cypress/code-coverage": "^3.11.0",
-    "@rollup/plugin-commonjs": "^25.0.3",
-    "@rollup/plugin-json": "^6.0.0",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-terser": "^0.4.3",
-    "@semantic-release/changelog": "~6.0.3",
-    "@semantic-release/exec": "~6.0.3",
-    "@semantic-release/git": "~10.0.1",
-    "@semantic-release/github": "^9.0.4",
-    "@semantic-release/npm": "~10.0.4",
-    "@types/cypress__code-coverage": "^3.10.0",
-    "@types/js-cookie": "^3.0.3",
-    "@types/lodash-es": "^4.17.8",
-    "@types/node": "^20.4.9",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
-    "@vitest/coverage-v8": "^0.33.0",
-    "better-docs": "^2.7.2",
-    "commitizen": "^4.3.0",
-    "cypress": "^12.17.3",
-    "cypress-vite": "^1.4.2",
-    "dayjs": "^1.11.9",
-    "eslint": "^8.46.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-cypress": "^2.14.0",
-    "eslint-plugin-import": "^2.28.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "git-cz": "^4.9.0",
-    "husky": "^8.0.3",
-    "js-cookie": "^3.0.5",
-    "jsdoc": "^4.0.2",
-    "lint-staged": "^14.0.1",
-    "lodash-es": "^4.17.21",
-    "minami": "^1.2.3",
-    "minimist": "^1.2.8",
-    "npm-run-all": "^4.1.5",
-    "octokit": "^3.1.0",
-    "prettier": "^3.0.1",
-    "rimraf": "^5.0.1",
-    "rollup": "^3.28.0",
-    "semantic-release": "~21.0.7",
-    "taze": "^0.11.2",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.9",
-    "vite-plugin-banner": "^0.7.0",
-    "vite-plugin-istanbul": "^5.0.0",
-    "vitepress": "^1.0.0-rc.4",
-    "vitest": "^0.33.0",
-    "yaml": "^2.3.1"
-  },
-  "peerDependencies": {
-    "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "browserslist": [
-    "last 1 version",
-    "> 1%",
-    "not dead"
-  ],
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "common-utils",
+        "frontend",
+        "cennavi",
+        "navinfo",
+        "ni-web"
+    ],
+    "author": "NI Web Infra Team",
+    "lint-staged": {
+        "*.{js,jsx,vue,ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.scss": "prettier --write"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@commitlint/cli": "^17.7.0",
+        "@commitlint/config-conventional": "^17.7.0",
+        "@cypress/code-coverage": "^3.11.0",
+        "@rollup/plugin-commonjs": "^25.0.3",
+        "@rollup/plugin-json": "^6.0.0",
+        "@rollup/plugin-node-resolve": "^15.1.0",
+        "@rollup/plugin-terser": "^0.4.3",
+        "@semantic-release/changelog": "~6.0.3",
+        "@semantic-release/exec": "~6.0.3",
+        "@semantic-release/git": "~10.0.1",
+        "@semantic-release/github": "^9.0.4",
+        "@semantic-release/npm": "~10.0.4",
+        "@types/cypress__code-coverage": "^3.10.0",
+        "@types/js-cookie": "^3.0.3",
+        "@types/lodash-es": "^4.17.8",
+        "@types/node": "^20.4.9",
+        "@typescript-eslint/eslint-plugin": "^6.3.0",
+        "@typescript-eslint/parser": "^6.3.0",
+        "@vitest/coverage-v8": "^0.33.0",
+        "better-docs": "^2.7.2",
+        "commitizen": "^4.3.0",
+        "cypress": "^12.17.3",
+        "cypress-vite": "^1.4.2",
+        "dayjs": "^1.11.9",
+        "eslint": "^8.46.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-cypress": "^2.14.0",
+        "eslint-plugin-import": "^2.28.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "git-cz": "^4.9.0",
+        "husky": "^8.0.3",
+        "js-cookie": "^3.0.5",
+        "jsdoc": "^4.0.2",
+        "lint-staged": "^14.0.1",
+        "lodash-es": "^4.17.21",
+        "minami": "^1.2.3",
+        "minimist": "^1.2.8",
+        "npm-run-all": "^4.1.5",
+        "octokit": "^3.1.0",
+        "prettier": "^3.0.1",
+        "rimraf": "^5.0.1",
+        "rollup": "^3.28.0",
+        "semantic-release": "~21.0.7",
+        "taze": "^0.11.2",
+        "typescript": "^5.1.6",
+        "vite": "^4.4.9",
+        "vite-plugin-banner": "^0.7.0",
+        "vite-plugin-istanbul": "^5.0.0",
+        "vitepress": "^1.0.0-rc.4",
+        "vitest": "^0.33.0",
+        "yaml": "^2.3.1"
+    },
+    "peerDependencies": {
+        "prop-types": "^15.8.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "browserslist": [
+        "last 1 version",
+        "> 1%",
+        "not dead"
+    ],
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "nyc": {
+        "reporter": [
+            "text",
+            "html",
+            "clover",
+            "json-summary",
+            "json"
+        ],
+        "report-dir": "e2e-coverage"
     }
-  },
-  "nyc": {
-    "reporter": [
-      "text",
-      "html",
-      "clover",
-      "json-summary",
-      "json"
-    ],
-    "report-dir": "e2e-coverage"
-  }
 }
