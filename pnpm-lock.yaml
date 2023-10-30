@@ -24,7 +24,7 @@ devDependencies:
     version: 17.7.0
   '@cypress/code-coverage':
     specifier: ^3.11.0
-    version: 3.11.0(@babel/core@7.22.5)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(cypress@12.17.3)(webpack@5.88.1)
+    version: 3.12.6(@babel/core@7.22.5)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(cypress@12.17.3)(webpack@5.88.1)
   '@rollup/plugin-commonjs':
     specifier: ^25.0.3
     version: 25.0.3(rollup@3.28.0)
@@ -54,7 +54,7 @@ devDependencies:
     version: 10.0.4(semantic-release@21.0.7)
   '@types/cypress__code-coverage':
     specifier: ^3.10.0
-    version: 3.10.0
+    version: 3.10.1
   '@types/js-cookie':
     specifier: ^3.0.3
     version: 3.0.3
@@ -1721,27 +1721,31 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@cypress/code-coverage@3.11.0(@babel/core@7.22.5)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(cypress@12.17.3)(webpack@5.88.1):
-    resolution: {integrity: sha512-ihSO1s03gmLRE224oIjrbdG1ey63vw/UY+VSqQ5m/TKkAvyz6GIiniq6juk3AV/+0vQC1Eb4UWFu8ndtji4M1g==}
+  /@cypress/code-coverage@3.12.6(@babel/core@7.22.5)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(cypress@12.17.3)(webpack@5.88.1):
+    resolution: {integrity: sha512-QeOB54dkxee8LKdbK9NqMinlMtzy60K2DexSvx4XZdrU52gut9Ukc7sUvRe44gK1yJFYno977Kx9miNIeYWVtA==}
     peerDependencies:
+      '@babel/core': ^7.0.1
+      '@babel/preset-env': ^7.0.0
+      babel-loader: ^8.3 || ^9
       cypress: '*'
+      webpack: ^4 || ^5
     dependencies:
-      '@cypress/webpack-preprocessor': 5.17.1(@babel/core@7.22.5)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(webpack@5.88.1)
+      '@babel/core': 7.22.5
+      '@babel/preset-env': 7.22.6(@babel/core@7.22.5)
+      '@cypress/webpack-preprocessor': 6.0.0(@babel/core@7.22.5)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(webpack@5.88.1)
+      babel-loader: 9.1.2(@babel/core@7.22.5)(webpack@5.88.1)
       chalk: 4.1.2
       cypress: 12.17.3
-      dayjs: 1.11.9
+      dayjs: 1.11.10
       debug: 4.3.4(supports-color@8.1.1)
       execa: 4.1.0
       globby: 11.0.4
       istanbul-lib-coverage: 3.0.0
       js-yaml: 4.1.0
       nyc: 15.1.0
+      webpack: 5.88.1
     transitivePeerDependencies:
-      - '@babel/core'
-      - '@babel/preset-env'
-      - babel-loader
       - supports-color
-      - webpack
     dev: true
 
   /@cypress/request@2.88.11:
@@ -1768,12 +1772,12 @@ packages:
       uuid: 8.3.2
     dev: true
 
-  /@cypress/webpack-preprocessor@5.17.1(@babel/core@7.22.5)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(webpack@5.88.1):
-    resolution: {integrity: sha512-FE/e8ikPc8z4EVopJCaior3RGy0jd2q9Xcp5NtiwNG4XnLfEnUFTZlAGwXe75sEh4fNMPrBJW1KIz77PX5vGAw==}
+  /@cypress/webpack-preprocessor@6.0.0(@babel/core@7.22.5)(@babel/preset-env@7.22.6)(babel-loader@9.1.2)(webpack@5.88.1):
+    resolution: {integrity: sha512-1AS1Et5CNPJii0+DdBZBS8e0hlM2BkBNmYRdZO4/16A3KS3em1sjPZtFw7jJF00m6DYAdB9iy6QW/lLZ2bN0gg==}
     peerDependencies:
       '@babel/core': ^7.0.1
       '@babel/preset-env': ^7.0.0
-      babel-loader: ^8.0.2 || ^9
+      babel-loader: ^8.3 || ^9
       webpack: ^4 || ^5
     dependencies:
       '@babel/core': 7.22.5
@@ -2892,8 +2896,8 @@ packages:
     resolution: {integrity: sha512-mEo1sAde+UCE6b2hxn332f1g1E8WfYRu6p5SvTKr2ZKC1f7gFJXk4h5PyGP9Dt6gCaG8y8XhwnXWC6Iy2cmBng==}
     dev: true
 
-  /@types/cypress__code-coverage@3.10.0:
-    resolution: {integrity: sha512-wzgBnjD5yyZhpOKNxKNqptAMgzY2klexrA97loeUa/63Rmnnsno2y/AmcaPSkTBaqDjDXgyEAxTiCgWeMGGOuA==}
+  /@types/cypress__code-coverage@3.10.1:
+    resolution: {integrity: sha512-7p4ob91tlidbZxJNeUlLveOlRDbh+j5gbB1JgGJ9ZI1PdTARdtkNIk4ns6fOonXRUV+/edgbcf2kANPV749ZLg==}
     dependencies:
       cypress: 12.17.3
     dev: true
@@ -4346,11 +4350,6 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /chalk@5.2.0:
-    resolution: {integrity: sha512-ree3Gqw/nazQAPuJJEy+avdl7QfZMcUvmHIKgEZkGL+xOBzRvup5Hxo6LHuMceSxOabuJLJm5Yp/92R9eMmMvA==}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    dev: true
-
   /chalk@5.3.0:
     resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
@@ -4856,6 +4855,10 @@ packages:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
     dev: true
 
+  /dayjs@1.11.10:
+    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+    dev: true
+
   /dayjs@1.11.9:
     resolution: {integrity: sha512-QvzAURSbQ0pKdIye2txOzNaHmxtUBXerpY0FJsFXUMKbIZeFm5ht1LS/jFsrncjnmtv8HsG0W2g6c0zUjZWmpA==}
     dev: true
@@ -4941,7 +4944,7 @@ packages:
     dependencies:
       bundle-name: 3.0.0
       default-browser-id: 3.0.0
-      execa: 7.1.1
+      execa: 7.2.0
       titleize: 3.0.0
     dev: true
 
@@ -5126,7 +5129,7 @@ packages:
     resolution: {integrity: sha512-ZCEas2sDVFR3gpumwwzSU4OJZwWJ46yqJH3TqH3vSxEBzeAlC0uCJLGAnZC0vX1TIXzHzjcwpKmUn2xw5mC/qA==}
     engines: {node: ^16.14 || >=18}
     dependencies:
-      execa: 7.1.1
+      execa: 7.2.0
       java-properties: 1.0.2
     dev: true
 
@@ -5643,17 +5646,6 @@ packages:
     resolution: {integrity: sha512-VxPP4NqbUjj6MaAOafWeUn2cXWLcCtljklUtZf0Ind4XQ+QPtmA0b18zZy0jIQx+ExRVCR/ZQpBmik5lXshNsw==}
     dev: true
 
-  /fast-glob@3.2.12:
-    resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
-    engines: {node: '>=8.6.0'}
-    dependencies:
-      '@nodelib/fs.stat': 2.0.5
-      '@nodelib/fs.walk': 1.2.8
-      glob-parent: 5.1.2
-      merge2: 1.4.1
-      micromatch: 4.0.5
-    dev: true
-
   /fast-glob@3.3.0:
     resolution: {integrity: sha512-ChDuvbOypPuNjO8yIDf36x7BlZX1smcUMTTcyoIjycexOxd6DFsKsg21qVBzEmr3G7fUKIRy2/psii+CIUt7FA==}
     engines: {node: '>=8.6.0'}
@@ -6134,7 +6126,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.0
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
@@ -7534,7 +7526,7 @@ packages:
     dependencies:
       ansi-escapes: 6.2.0
       cardinal: 2.1.1
-      chalk: 5.2.0
+      chalk: 5.3.0
       cli-table3: 0.6.3
       marked: 5.1.0
       node-emoji: 1.11.0
